@@ -1,0 +1,6 @@
+[submodule "dep/dpf"]
+	path = dep/dpf
+	url = https://github.com/DISTRHO/DPF.git
+[submodule "dep/pdvg"]
+	path = dep/pdvg
+	url = https://github.com/Wasted-Audio/PDVG.git
