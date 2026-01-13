@@ -7,6 +7,7 @@
 #include "DistrhoPluginInfo.h"
 
 #include "Slider.hpp"
+#include "Toggle.hpp"
 #include "nanovg.h"
 
 START_NAMESPACE_DISTRHO
@@ -14,7 +15,9 @@ START_NAMESPACE_DISTRHO
 // -----------------------------------------------------------------------------------------------------------
 
 class PDVGWidgetsExampleUI : public UI,
-                             public PDSliderEventHandler::Callback
+                             public PDSliderEventHandler::Callback,
+                            //  public PDSliderEventHandler::Callback,
+                             public SwitchEventHandler::Callback
 {
 public:
     static const uint kInitialWidth = 600;
@@ -23,7 +26,8 @@ public:
     PDVGWidgetsExampleUI()
         : UI(kInitialWidth, kInitialHeight),
           mySlider(this, this),
-          mySlider2(this, this)
+          mySlider2(this, this),
+          myToggle(this, this)
     {
         // vslider
         mySlider.setId(kSlider);
@@ -42,6 +46,11 @@ public:
         mySlider2.setStartPos(0, 0);
         mySlider2.setEndPos(128, 0);
         mySlider2.setHorizontal();
+
+        // toggle
+        myToggle.setId(kToggle);
+        myToggle.setSize(25, 25);
+        myToggle.setAbsolutePos(100, 100);
     };
 
 protected:
@@ -56,6 +65,9 @@ protected:
         case kSlider2:
             mySlider2.setValue(value);
             break;
+        case kToggle:
+            myToggle.setDown(static_cast<bool>(value));
+            break;
         default:
             break;
         }
@@ -64,14 +76,14 @@ protected:
 
     void onNanoDisplay() override
     {
-        auto bgColour = nvgRGBA(0x38, 0x38, 0x38, 0xFF);
+        auto bgColor = nvgRGBA(0x38, 0x38, 0x38, 0xFF);
         NVGcontext* ctx = getContext();
         NVGpaint p;
         memset(&p, 0, sizeof(p));
         nvgTransformIdentity(p.xform);
 
-        p.innerColor = bgColour;
-        p.outerColor = bgColour;
+        p.innerColor = bgColor;
+        p.outerColor = bgColor;
         nvgFillPaint(ctx, p);
         nvgBeginPath(ctx);
         nvgRect(ctx, 0, 0, kInitialWidth, kInitialHeight);
@@ -88,10 +100,18 @@ protected:
         setParameterValue(id, value);
     }
 
+    void switchClicked(SubWidget *const widget, bool down)
+    {
+        printf("switch clicked: %d\n", down);
+        const uint id = widget->getId();
+        setParameterValue(id, static_cast<float>(down));
+    }
+
 
 private:
     Slider mySlider;
     Slider mySlider2;
+    Toggle myToggle;
 
     DISTRHO_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(PDVGWidgetsExampleUI)
 };

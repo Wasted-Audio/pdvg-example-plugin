@@ -3,7 +3,8 @@ FILES_DSP = $(filter-out PDVGWidgetsExampleUI.cpp, $(wildcard plugin/*.cpp))
 FILES_DSP += $(wildcard *.c)
 FILES_UI = plugin/PDVGWidgetsExampleUI.cpp \
 	dep/pdvg/src/ExtraEventHandlers.cpp \
-	dep/pdvg/src/Slider.cpp
+	dep/pdvg/src/Slider.cpp \
+	dep/pdvg/src/Toggle.cpp
 
 
 DPF_TARGET_DIR = bin

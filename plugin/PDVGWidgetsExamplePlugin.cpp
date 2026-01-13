@@ -70,6 +70,14 @@ protected:
       parameter.ranges.min = 0.0f;
       parameter.ranges.max = 1.0f;
       break;
+    case kToggle:
+      parameter.name = "myToggle";
+      parameter.symbol = "mytoggle";
+      parameter.hints = kParameterIsAutomable;
+      parameter.ranges.def = 0.0f;
+      parameter.ranges.min = 0.0f;
+      parameter.ranges.max = 1.0f;
+      break;
     default:
       break;
     }
@@ -85,6 +93,9 @@ protected:
       break;
     case kSlider2:
       value = fSlider2;
+      break;
+    case kToggle:
+      value = fToggle;
       break;
     default:
       break;
@@ -102,6 +113,9 @@ protected:
     case kSlider2:
       fSlider2 = value;
       break;
+    case kToggle:
+      fToggle = value;
+      break;
     default:
       break;
     }
@@ -116,6 +130,7 @@ protected:
 private:
   float fSlider;
   float fSlider2;
+  float fToggle;
 
   DISTRHO_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(PDVGWidgetsExamplePlugin)
 };

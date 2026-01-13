@@ -14,5 +14,6 @@ enum Parameters
 {
     kSlider,
     kSlider2,
+    kToggle,
     kParameterCount
 };
