@@ -37,6 +37,11 @@ public:
         mySlider.setStartPos(0, 128);
         mySlider.setEndPos(0, 0);
         mySlider.setInverted(true);
+        mySlider.setColors(
+            nvgRGBA(0x38, 0x38, 0x38, 0xFF),
+            nvgRGBA(0x19, 0x19, 0x19, 0xFF),
+            nvgRGBA(0xFF, 0xFF, 0xFF, 0xFF)
+        );
 
         // hslider
         mySlider2.setId(kSlider2);
@@ -46,11 +51,20 @@ public:
         mySlider2.setStartPos(0, 0);
         mySlider2.setEndPos(128, 0);
         mySlider2.setHorizontal();
+        mySlider2.setColors(
+            nvgRGBA(0x38, 0x38, 0x38, 0xFF),
+            nvgRGBA(0x19, 0x19, 0x19, 0xFF),
+            nvgRGBA(0xFF, 0xFF, 0xFF, 0xFF)
+        );
 
         // toggle
         myToggle.setId(kToggle);
         myToggle.setSize(25, 25);
         myToggle.setAbsolutePos(100, 100);
+        myToggle.setColors(
+            nvgRGBA(0x19, 0x19, 0x19, 0xFF),
+            nvgRGBA(0xFF, 0xFF, 0xFF, 0xFF)
+        );
     };
 
 protected:
