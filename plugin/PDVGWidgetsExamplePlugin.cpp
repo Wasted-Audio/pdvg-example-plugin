@@ -57,7 +57,7 @@ protected:
     case kSlider:
       parameter.name = "mySlider";
       parameter.symbol = "myslider";
-      parameter.hints = kParameterIsAutomable;
+      parameter.hints = kParameterIsAutomatable;
       parameter.ranges.def = 0.5f;
       parameter.ranges.min = 0.0f;
       parameter.ranges.max = 1.0f;
@@ -65,7 +65,7 @@ protected:
     case kSlider2:
       parameter.name = "mySlider2";
       parameter.symbol = "myslider2";
-      parameter.hints = kParameterIsAutomable;
+      parameter.hints = kParameterIsAutomatable;
       parameter.ranges.def = 0.5f;
       parameter.ranges.min = 0.0f;
       parameter.ranges.max = 1.0f;
@@ -73,10 +73,18 @@ protected:
     case kToggle:
       parameter.name = "myToggle";
       parameter.symbol = "mytoggle";
-      parameter.hints = kParameterIsAutomable;
+      parameter.hints = kParameterIsAutomatable;
       parameter.ranges.def = 0.0f;
       parameter.ranges.min = 0.0f;
       parameter.ranges.max = 1.0f;
+      break;
+    case kRadio:
+      parameter.name = "myRadio";
+      parameter.symbol = "myradio";
+      parameter.hints = kParameterIsAutomatable;
+      parameter.ranges.def = 0.0f;
+      parameter.ranges.min = 0.0f;
+      parameter.ranges.max = 5.0f;
       break;
     default:
       break;
@@ -97,6 +105,9 @@ protected:
     case kToggle:
       value = fToggle;
       break;
+    case kRadio:
+      value = fRadio;
+      break;
     default:
       break;
     }
@@ -116,6 +127,9 @@ protected:
     case kToggle:
       fToggle = value;
       break;
+    case kRadio:
+      fRadio = value;
+      break;
     default:
       break;
     }
@@ -131,6 +145,7 @@ private:
   float fSlider;
   float fSlider2;
   float fToggle;
+  float fRadio;
 
   DISTRHO_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(PDVGWidgetsExamplePlugin)
 };

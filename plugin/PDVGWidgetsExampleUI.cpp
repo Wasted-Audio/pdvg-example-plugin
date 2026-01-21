@@ -5,10 +5,11 @@
 
 #include "DistrhoUI.hpp"
 #include "DistrhoPluginInfo.h"
+#include "nanovg.h"
 
 #include "Slider.hpp"
 #include "Toggle.hpp"
-#include "nanovg.h"
+#include "Radio.hpp"
 
 START_NAMESPACE_DISTRHO
 
@@ -16,8 +17,8 @@ START_NAMESPACE_DISTRHO
 
 class PDVGWidgetsExampleUI : public UI,
                              public PDSliderEventHandler::Callback,
-                            //  public PDSliderEventHandler::Callback,
-                             public SwitchEventHandler::Callback
+                             public PDToggleEventHandler::Callback,
+                             public PDRadioEventHandler::Callback
 {
 public:
     static const uint kInitialWidth = 600;
@@ -27,7 +28,9 @@ public:
         : UI(kInitialWidth, kInitialHeight),
           mySlider(this, this),
           mySlider2(this, this),
-          myToggle(this, this)
+          myToggle(this, this),
+          myRadio(this, this),
+          myRadio2(this, this)
     {
         // vslider
         mySlider.setId(kSlider);
@@ -65,6 +68,27 @@ public:
             nvgRGBA(0x19, 0x19, 0x19, 0xFF),
             nvgRGBA(0xFF, 0xFF, 0xFF, 0xFF)
         );
+
+        // vradio
+        myRadio.setId(kRadio);
+        myRadio.setSize(20, 100);
+        myRadio.setAbsolutePos(200, 200);
+        myRadio.setStep(5);
+        myRadio.setColors(
+            nvgRGBA(0x19, 0x19, 0x19, 0xFF),
+            nvgRGBA(0xFF, 0xFF, 0xFF, 0xFF)
+        );
+
+        // hradio
+        myRadio2.setId(kRadio);
+        myRadio2.setSize(160, 20);
+        myRadio2.setAbsolutePos(250, 250);
+        myRadio2.setStep(8);
+        myRadio2.setHorizontal();
+        myRadio2.setColors(
+            nvgRGBA(0x19, 0x19, 0x19, 0xFF),
+            nvgRGBA(0xFF, 0xFF, 0xFF, 0xFF)
+        );
     };
 
 protected:
@@ -91,18 +115,18 @@ protected:
     void onNanoDisplay() override
     {
         auto bgColor = nvgRGBA(0x38, 0x38, 0x38, 0xFF);
-        NVGcontext* ctx = getContext();
+        NVGcontext* nvg = getContext();
         NVGpaint p;
         memset(&p, 0, sizeof(p));
         nvgTransformIdentity(p.xform);
 
         p.innerColor = bgColor;
         p.outerColor = bgColor;
-        nvgFillPaint(ctx, p);
-        nvgBeginPath(ctx);
-        nvgRect(ctx, 0, 0, kInitialWidth, kInitialHeight);
-        nvgFill(ctx);
-        nvgStroke(ctx);
+        nvgFillPaint(nvg, p);
+        nvgBeginPath(nvg);
+        nvgRect(nvg, 0, 0, kInitialWidth, kInitialHeight);
+        nvgFill(nvg);
+        nvgStroke(nvg);
     }
 
     void sliderDragStarted(SubWidget *const widget) override {}
@@ -121,11 +145,19 @@ protected:
         setParameterValue(id, static_cast<float>(down));
     }
 
+    void radioValueChanged(SubWidget *const widget, uint index)
+    {
+        printf("radio clicked: %d\n", index);
+        const uint id = widget->getId();
+        setParameterValue(id, static_cast<float>(index));
+    }
 
 private:
     Slider mySlider;
     Slider mySlider2;
     Toggle myToggle;
+    Radio myRadio;
+    Radio myRadio2;
 
     DISTRHO_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(PDVGWidgetsExampleUI)
 };

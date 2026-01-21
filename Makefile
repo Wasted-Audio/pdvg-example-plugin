@@ -4,7 +4,8 @@ FILES_DSP += $(wildcard *.c)
 FILES_UI = plugin/PDVGWidgetsExampleUI.cpp \
 	dep/pdvg/src/ExtraEventHandlers.cpp \
 	dep/pdvg/src/Slider.cpp \
-	dep/pdvg/src/Toggle.cpp
+	dep/pdvg/src/Toggle.cpp \
+	dep/pdvg/src/Radio.cpp
 
 
 DPF_TARGET_DIR = bin
