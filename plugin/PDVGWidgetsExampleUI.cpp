@@ -86,8 +86,8 @@ public:
         myRadio2.setStep(8);
         myRadio2.setHorizontal();
         myRadio2.setColors(
-            nvgRGBA(0x19, 0x19, 0x19, 0xFF),
-            nvgRGBA(0xFF, 0xFF, 0xFF, 0xFF)
+            nvgRGBA(0xFF, 0xFF, 0xFF, 0xFF),
+            nvgRGBA(0x19, 0x19, 0x19, 0xFF)
         );
     };
 
