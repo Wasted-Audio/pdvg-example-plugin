@@ -10,11 +10,15 @@
 #define DISTRHO_PLUGIN_NUM_OUTPUTS 2
 #define DISTRHO_UI_USE_NANOVG 1
 
+#define DISTRHO_UI_DEFAULT_WIDTH 600
+#define DISTRHO_UI_DEFAULT_HEIGHT 350
+
 enum Parameters
 {
     kSlider,
     kSlider2,
     kToggle,
     kRadio,
+    kRadio2,
     kParameterCount
 };
