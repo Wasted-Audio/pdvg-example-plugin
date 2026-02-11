@@ -27,7 +27,6 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
     myCanvas->setSize(269 * scaleFactor, 181 * scaleFactor);
     myCanvas->setAbsolutePos(75 * scaleFactor, 49 * scaleFactor);
     myCanvas->setColors(
-        nvgRGBA(0x38, 0x38, 0x38, 0xFF),
         nvgRGBA(0x63, 0xFF, 0xA9, 0xFF)
     );
 
