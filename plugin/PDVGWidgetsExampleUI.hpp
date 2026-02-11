@@ -7,6 +7,7 @@
 #include "DistrhoPluginInfo.h"
 #include "nanovg.h"
 
+#include "Canvas.hpp"
 #include "Slider.hpp"
 #include "Toggle.hpp"
 #include "Radio.hpp"
@@ -34,6 +35,7 @@ protected:
     void radioValueChanged(SubWidget *const widget, uint index) override;
 
 private:
+    ScopedPointer<PDCanvas> myCanvas;
     ScopedPointer<PDSlider> mySlider;
     ScopedPointer<PDSlider> mySlider2;
     ScopedPointer<PDToggle> myToggle;

@@ -3,6 +3,7 @@ FILES_DSP = $(filter-out PDVGWidgetsExampleUI.cpp, $(wildcard plugin/*.cpp))
 FILES_DSP += $(wildcard *.c)
 FILES_UI = plugin/PDVGWidgetsExampleUI.cpp \
 	dep/pdvg/src/ExtraEventHandlers.cpp \
+	dep/pdvg/src/Canvas.cpp \
 	dep/pdvg/src/Slider.cpp \
 	dep/pdvg/src/Toggle.cpp \
 	dep/pdvg/src/Radio.cpp

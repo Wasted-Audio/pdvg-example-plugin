@@ -7,6 +7,7 @@
 #include "DistrhoPluginInfo.h"
 #include "nanovg.h"
 
+#include "Common.hpp"
 #include "PDVGWidgetsExampleUI.hpp"
 
 START_NAMESPACE_DISTRHO
@@ -20,6 +21,15 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
     const float width = getWidth();
     const float height = getHeight();
     const double scaleFactor = getScaleFactor();
+
+    // canvas
+    myCanvas = new PDCanvas(this);
+    myCanvas->setSize(269 * scaleFactor, 181 * scaleFactor);
+    myCanvas->setAbsolutePos(75 * scaleFactor, 49 * scaleFactor);
+    myCanvas->setColors(
+        nvgRGBA(0x38, 0x38, 0x38, 0xFF),
+        nvgRGBA(0x63, 0xFF, 0xA9, 0xFF)
+    );
 
     // vslider
     mySlider = new PDSlider(this, this);
