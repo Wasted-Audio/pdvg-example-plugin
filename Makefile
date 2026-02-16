@@ -6,7 +6,9 @@ FILES_UI = plugin/PDVGWidgetsExampleUI.cpp \
 	dep/pdvg/src/Canvas.cpp \
 	dep/pdvg/src/Slider.cpp \
 	dep/pdvg/src/Toggle.cpp \
-	dep/pdvg/src/Radio.cpp
+	dep/pdvg/src/Radio.cpp \
+	dep/pdvg/src/Label.cpp \
+	dep/pdvg/src/Fonts/*.cpp
 
 
 DPF_TARGET_DIR = bin

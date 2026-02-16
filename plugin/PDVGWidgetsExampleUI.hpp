@@ -11,6 +11,7 @@
 #include "Slider.hpp"
 #include "Toggle.hpp"
 #include "Radio.hpp"
+#include "Label.hpp"
 
 START_NAMESPACE_DISTRHO
 
@@ -36,6 +37,8 @@ protected:
 
 private:
     ScopedPointer<PDCanvas> myCanvas;
+    ScopedPointer<PDLabel> myComment;
+    ScopedPointer<PDLabel> myComment2;
     ScopedPointer<PDSlider> mySlider;
     ScopedPointer<PDSlider> mySlider2;
     ScopedPointer<PDToggle> myToggle;

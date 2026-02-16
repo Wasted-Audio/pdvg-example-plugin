@@ -29,6 +29,23 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
     myCanvas->setColors(
         nvgRGBA(0x63, 0xFF, 0xA9, 0xFF)
     );
+    myCanvas->setLabel("tester", nvgRGBA(0x70, 0x70, 0x70, 0xFF), 20 * scaleFactor, 12 * scaleFactor, 16 * scaleFactor);
+
+    // comment
+    myComment = new PDLabel(this);
+    std::string myCommentString = "test comment";
+    myComment->setText(myCommentString);
+    myComment->setColors(nvgRGBA(0xFF, 0xFF, 0xFF, 0xFF));
+    myComment->setAbsolutePos(45 * scaleFactor, 264 * scaleFactor);
+    myComment->setSize(16 * std::string(myCommentString).length() * scaleFactor, 16 * scaleFactor);
+
+    // comment wrapped
+    myComment2 = new PDLabel(this);
+    std::string myComment2String = "comment wrapped";
+    myComment2->setText(myComment2String);
+    myComment2->setColors(nvgRGBA(0xFF, 0xFF, 0xFF, 0xFF));
+    myComment2->setAbsolutePos(428 * scaleFactor, 98 * scaleFactor);
+    myComment2->setSize(16 * 13 * scaleFactor, 16 * scaleFactor);
 
     // vslider
     mySlider = new PDSlider(this, this);
@@ -92,6 +109,7 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
         nvgRGBA(0xFF, 0xFF, 0xFF, 0xFF),
         nvgRGBA(0x19, 0x19, 0x19, 0xFF)
     );
+    myRadio2->setLabel("hradio label", nvgRGBA(0xFF, 0x00, 0x00, 0xFF), 0 * scaleFactor, 0 * scaleFactor, 12 * scaleFactor);
 }
 
 PDVGWidgetsExampleUI::~PDVGWidgetsExampleUI()
@@ -106,13 +124,8 @@ void PDVGWidgetsExampleUI::onNanoDisplay()
 
     auto bgColor = nvgRGBA(0x38, 0x38, 0x38, 0xFF);
     NVGcontext* nvg = getContext();
-    NVGpaint p;
-    memset(&p, 0, sizeof(p));
-    nvgTransformIdentity(p.xform);
 
-    p.innerColor = bgColor;
-    p.outerColor = bgColor;
-    nvgFillPaint(nvg, p);
+    nvgFillColor(nvg, bgColor);
     nvgBeginPath(nvg);
     nvgRect(nvg, 0, 0, width * scaleFactor, height * scaleFactor);
     nvgFill(nvg);
