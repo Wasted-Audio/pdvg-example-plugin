@@ -45,11 +45,7 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
     );
 
     // background
-    PDRectangle subpatch;
-    subpatch.x = 464 * scaleFactor;
-    subpatch.y = 190 * scaleFactor;
-    subpatch.w = 200 * scaleFactor;
-    subpatch.h = 140 * scaleFactor;
+    PDRectangle subpatch(464 * scaleFactor, 190 * scaleFactor, 200 * scaleFactor, 140 * scaleFactor);
     const std::vector<PDRectangle> subpatches = {subpatch};
 
     mainBackground = new PDBackground(this);
