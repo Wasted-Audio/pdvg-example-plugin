@@ -22,6 +22,42 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
     const float height = getHeight();
     const double scaleFactor = getScaleFactor();
 
+    // subpatch
+    subBackground = new PDBackground(this);
+    subBackground->setSize(200 * scaleFactor, 140 * scaleFactor);
+    subBackground->setAbsolutePos(464 * scaleFactor, 190 * scaleFactor);
+    subBackground->setColors(nvgRGBA(0x38, 0x38, 0x38, 0xFF));
+
+    // subCanvas
+    subCanvas = new PDCanvas(this);
+    subCanvas->setSize(136 * scaleFactor, 97 * scaleFactor);
+    subCanvas->setAbsolutePos((464 - 9) * scaleFactor, (190 - 13) * scaleFactor);
+    subCanvas->setColors(
+        nvgRGBA(0x00, 0x62, 0x04, 0xFF)
+    );
+
+    // subCanvas2
+    subCanvas2 = new PDCanvas(this);
+    subCanvas2->setSize(131 * scaleFactor, 102 * scaleFactor);
+    subCanvas2->setAbsolutePos((464 + 89) * scaleFactor, (190 + 52) * scaleFactor);
+    subCanvas2->setColors(
+        nvgRGBA(0x62, 0x0A, 0x00, 0xFF)
+    );
+
+    // background
+    PDRectangle subpatch;
+    subpatch.x = 464 * scaleFactor;
+    subpatch.y = 190 * scaleFactor;
+    subpatch.w = 200 * scaleFactor;
+    subpatch.h = 140 * scaleFactor;
+    const std::vector<PDRectangle> subpatches = {subpatch};
+
+    mainBackground = new PDBackground(this);
+    mainBackground->setSize(width * scaleFactor, height * scaleFactor);
+    mainBackground->setAbsolutePos(0, 0);
+    mainBackground->setColors(nvgRGBA(0x38, 0x38, 0x38, 0xFF));
+    mainBackground->setSubpatches(subpatches);
+
     // canvas
     myCanvas = new PDCanvas(this);
     myCanvas->setSize(269 * scaleFactor, 181 * scaleFactor);
@@ -118,18 +154,6 @@ PDVGWidgetsExampleUI::~PDVGWidgetsExampleUI()
 
 void PDVGWidgetsExampleUI::onNanoDisplay()
 {
-    const float width = getWidth();
-    const float height = getHeight();
-    const double scaleFactor = getScaleFactor();
-
-    auto bgColor = nvgRGBA(0x38, 0x38, 0x38, 0xFF);
-    NVGcontext* nvg = getContext();
-
-    nvgFillColor(nvg, bgColor);
-    nvgBeginPath(nvg);
-    nvgRect(nvg, 0, 0, width * scaleFactor, height * scaleFactor);
-    nvgFill(nvg);
-    nvgStroke(nvg);
 }
 
 void PDVGWidgetsExampleUI::parameterChanged(uint32_t index, float value)
