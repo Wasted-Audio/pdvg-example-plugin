@@ -14,6 +14,11 @@
 #N canvas 0 50 450 300 sub 1;
 #X obj -9 -13 cnv 15 136 97 empty empty empty 20 12 0 14 #006204 #ffffff 0;
 #X obj 89 52 cnv 15 131 102 empty empty empty 20 12 0 14 #620a00 #ffffff 0;
+#N canvas 0 50 450 300 subsub 1;
+#X obj -20 -13 cnv 15 163 131 empty empty empty 20 12 0 14 #000862 #ffffff 0;
+#X obj 49 24 tgl 25 0 empty empty empty 0 -10 0 10 #191919 #ffffff #ffffff 0 1;
+#X coords 0 0 1 1 118 75 1 0 0;
+#X restore 53 36 pd subsub;
 #X coords 0 0 1 1 200 140 1 0 0;
 #X restore 464 190 pd sub;
 #X connect 8 0 9 0;

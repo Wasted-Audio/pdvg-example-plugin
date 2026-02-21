@@ -18,6 +18,7 @@ enum Parameters
     kSlider,
     kSlider2,
     kToggle,
+    kToggle2,
     kRadio,
     kRadio2,
     kParameterCount

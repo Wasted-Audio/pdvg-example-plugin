@@ -22,40 +22,55 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
     const float height = getHeight();
     const double scaleFactor = getScaleFactor();
 
+    // mainpatch
+    mainPatch = new PDMainpatch(this);
+    mainPatch->setSize(width * scaleFactor, height * scaleFactor);
+
     // subpatch
-    subBackground = new PDBackground(this);
-    subBackground->setSize(200 * scaleFactor, 140 * scaleFactor);
-    subBackground->setAbsolutePos(464 * scaleFactor, 190 * scaleFactor);
-    subBackground->setColors(nvgRGBA(0x38, 0x38, 0x38, 0xFF));
+    subPatch = new PDSubpatch(mainPatch);
+    subPatch->setSize(200 * scaleFactor, 140 * scaleFactor);
+    subPatch->setAbsolutePos(464 * scaleFactor, 190 * scaleFactor);
+    subPatch->setColors(nvgRGBA(0x38, 0x38, 0x38, 0xFF));
+    mainPatch->addManagedChild(subPatch);
 
     // subCanvas
-    subCanvas = new PDCanvas(this);
+    subCanvas = new PDCanvas(subPatch);
     subCanvas->setSize(136 * scaleFactor, 97 * scaleFactor);
-    subCanvas->setAbsolutePos((464 - 9) * scaleFactor, (190 - 13) * scaleFactor);
-    subCanvas->setColors(
-        nvgRGBA(0x00, 0x62, 0x04, 0xFF)
-    );
+    subCanvas->setAbsolutePos(-9 * scaleFactor, -13 * scaleFactor);
+    subCanvas->setColors(nvgRGBA(0x00, 0x62, 0x04, 0xFF));
 
     // subCanvas2
-    subCanvas2 = new PDCanvas(this);
+    subCanvas2 = new PDCanvas(subPatch);
     subCanvas2->setSize(131 * scaleFactor, 102 * scaleFactor);
-    subCanvas2->setAbsolutePos((464 + 89) * scaleFactor, (190 + 52) * scaleFactor);
-    subCanvas2->setColors(
-        nvgRGBA(0x62, 0x0A, 0x00, 0xFF)
+    subCanvas2->setAbsolutePos(89 * scaleFactor, 52* scaleFactor);
+    subCanvas2->setColors(nvgRGBA(0x62, 0x0A, 0x00, 0xFF));
+
+    // subsubpatch
+    subsubPatch = new PDSubpatch(subPatch);
+    subsubPatch->setSize(118 * scaleFactor, 75 * scaleFactor);
+    subsubPatch->setAbsolutePos(53 * scaleFactor, 36 * scaleFactor);
+    subsubPatch->setColors(nvgRGBA(0x38, 0x38, 0x38, 0xFF));
+    subPatch->addManagedChild(subsubPatch);
+
+    // subsubcanvas
+    subsubCanvas = new PDCanvas(subsubPatch);
+    subsubCanvas->setSize(163 * scaleFactor,131 * scaleFactor);
+    subsubCanvas->setAbsolutePos(-20 * scaleFactor, -13 * scaleFactor);
+    subsubCanvas->setColors(nvgRGBA(0x00, 0x08, 0x62, 0xFF));
+
+    // toggle2
+    myToggle2 = new PDToggle(subsubPatch, this);
+    myToggle2->setId(kToggle2);
+    myToggle2->setSize(25 * scaleFactor, 25 * scaleFactor);
+    myToggle2->setAbsolutePos(49 * scaleFactor, 24 * scaleFactor);
+    myToggle2->setColors(
+        nvgRGBA(0x19, 0x19, 0x19, 0xFF),
+        nvgRGBA(0xFF, 0xFF, 0xFF, 0xFF)
     );
-
-    // background
-    PDRectangle subpatch(464 * scaleFactor, 190 * scaleFactor, 200 * scaleFactor, 140 * scaleFactor);
-    const std::vector<PDRectangle> subpatches = {subpatch};
-
-    mainBackground = new PDBackground(this);
-    mainBackground->setSize(width * scaleFactor, height * scaleFactor);
-    mainBackground->setAbsolutePos(0, 0);
-    mainBackground->setColors(nvgRGBA(0x38, 0x38, 0x38, 0xFF));
-    mainBackground->setSubpatches(subpatches);
+    subsubPatch->addManagedChild(myToggle2);
 
     // canvas
-    myCanvas = new PDCanvas(this);
+    myCanvas = new PDCanvas(mainPatch);
     myCanvas->setSize(269 * scaleFactor, 181 * scaleFactor);
     myCanvas->setAbsolutePos(75 * scaleFactor, 49 * scaleFactor);
     myCanvas->setColors(
@@ -64,7 +79,7 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
     myCanvas->setLabel("tester", nvgRGBA(0x70, 0x70, 0x70, 0xFF), 20 * scaleFactor, 12 * scaleFactor, 16 * scaleFactor);
 
     // comment
-    myComment = new PDLabel(this);
+    myComment = new PDLabel(mainPatch);
     std::string myCommentString = "test comment";
     myComment->setText(myCommentString);
     myComment->setColors(nvgRGBA(0xFF, 0xFF, 0xFF, 0xFF));
@@ -72,7 +87,7 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
     myComment->setSize(16 * std::string(myCommentString).length() * scaleFactor, 16 * scaleFactor);
 
     // comment wrapped
-    myComment2 = new PDLabel(this);
+    myComment2 = new PDLabel(mainPatch);
     std::string myComment2String = "comment wrapped";
     myComment2->setText(myComment2String);
     myComment2->setColors(nvgRGBA(0xFF, 0xFF, 0xFF, 0xFF));
@@ -80,7 +95,7 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
     myComment2->setSize(16 * 13 * scaleFactor, 16 * scaleFactor);
 
     // vslider
-    mySlider = new PDSlider(this, this);
+    mySlider = new PDSlider(mainPatch, this);
     mySlider->setId(kSlider);
     mySlider->setSize(17 * scaleFactor, 128 * scaleFactor);
     mySlider->setAbsolutePos(160 * scaleFactor, 10 * scaleFactor);
@@ -93,9 +108,10 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
         nvgRGBA(0x19, 0x19, 0x19, 0xFF),
         nvgRGBA(0xFF, 0xFF, 0xFF, 0xFF)
     );
+    mainPatch->addManagedChild(mySlider);
 
     // hslider
-    mySlider2 = new PDSlider(this, this);
+    mySlider2 = new PDSlider(mainPatch, this);
     mySlider2->setId(kSlider2);
     mySlider2->setSize(128 * scaleFactor, 17 * scaleFactor);
     mySlider2->setAbsolutePos(160 * scaleFactor, 160 * scaleFactor);
@@ -108,9 +124,10 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
         nvgRGBA(0x19, 0x19, 0x19, 0xFF),
         nvgRGBA(0xFF, 0xFF, 0xFF, 0xFF)
     );
+    mainPatch->addManagedChild(mySlider2);
 
     // toggle
-    myToggle = new PDToggle(this, this);
+    myToggle = new PDToggle(mainPatch, this);
     myToggle->setId(kToggle);
     myToggle->setSize(25 * scaleFactor, 25 * scaleFactor);
     myToggle->setAbsolutePos(100 * scaleFactor, 100 * scaleFactor);
@@ -118,9 +135,10 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
         nvgRGBA(0x19, 0x19, 0x19, 0xFF),
         nvgRGBA(0xFF, 0xFF, 0xFF, 0xFF)
     );
+    mainPatch->addManagedChild(myToggle);
 
     // vradio
-    myRadio = new PDRadio(this, this);
+    myRadio = new PDRadio(mainPatch, this);
     myRadio->setId(kRadio);
     myRadio->setSize(20 * scaleFactor, 100 * scaleFactor);
     myRadio->setAbsolutePos(200 * scaleFactor, 200 * scaleFactor);
@@ -129,9 +147,10 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
         nvgRGBA(0x19, 0x19, 0x19, 0xFF),
         nvgRGBA(0xFF, 0xFF, 0xFF, 0xFF)
     );
+    mainPatch->addManagedChild(myRadio);
 
     // hradio
-    myRadio2 = new PDRadio(this, this);
+    myRadio2 = new PDRadio(mainPatch, this);
     myRadio2->setId(kRadio2);
     myRadio2->setSize(160 * scaleFactor, 20 * scaleFactor);
     myRadio2->setAbsolutePos(250 * scaleFactor, 250 * scaleFactor);
@@ -142,6 +161,7 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
         nvgRGBA(0x19, 0x19, 0x19, 0xFF)
     );
     myRadio2->setLabel("hradio label", nvgRGBA(0xFF, 0x00, 0x00, 0xFF), 0 * scaleFactor, 0 * scaleFactor, 12 * scaleFactor);
+    mainPatch->addManagedChild(myRadio2);
 }
 
 PDVGWidgetsExampleUI::~PDVGWidgetsExampleUI()
@@ -150,6 +170,18 @@ PDVGWidgetsExampleUI::~PDVGWidgetsExampleUI()
 
 void PDVGWidgetsExampleUI::onNanoDisplay()
 {
+    const float width = getWidth();
+    const float height = getHeight();
+    const double scaleFactor = getScaleFactor();
+
+    auto bgColor = nvgRGBA(0x38, 0x38, 0x38, 0xFF);
+    NVGcontext* nvg = getContext();
+
+    nvgFillColor(nvg, bgColor);
+    nvgBeginPath(nvg);
+    nvgRect(nvg, 0, 0, width * scaleFactor, height * scaleFactor);
+    nvgFill(nvg);
+    nvgStroke(nvg);
 }
 
 void PDVGWidgetsExampleUI::parameterChanged(uint32_t index, float value)

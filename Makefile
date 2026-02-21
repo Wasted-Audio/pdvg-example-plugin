@@ -8,7 +8,8 @@ FILES_UI = plugin/PDVGWidgetsExampleUI.cpp \
 	dep/pdvg/src/Toggle.cpp \
 	dep/pdvg/src/Radio.cpp \
 	dep/pdvg/src/Label.cpp \
-	dep/pdvg/src/Background.cpp \
+	dep/pdvg/src/Mainpatch.cpp \
+	dep/pdvg/src/Subpatch.cpp \
 	dep/pdvg/src/Fonts/*.cpp
 
 

@@ -78,6 +78,14 @@ protected:
       parameter.ranges.min = 0.0f;
       parameter.ranges.max = 1.0f;
       break;
+    case kToggle2:
+      parameter.name = "myToggle2";
+      parameter.symbol = "mytoggle2";
+      parameter.hints = kParameterIsAutomatable;
+      parameter.ranges.def = 0.0f;
+      parameter.ranges.min = 0.0f;
+      parameter.ranges.max = 1.0f;
+      break;
     case kRadio:
       parameter.name = "myRadio";
       parameter.symbol = "myradio";
@@ -113,6 +121,9 @@ protected:
     case kToggle:
       value = fToggle;
       break;
+    case kToggle2:
+      value = fToggle2;
+      break;
     case kRadio:
       value = fRadio;
       break;
@@ -138,6 +149,9 @@ protected:
     case kToggle:
       fToggle = value;
       break;
+    case kToggle2:
+      fToggle2 = value;
+      break;
     case kRadio:
       fRadio = value;
       break;
@@ -159,6 +173,7 @@ private:
   float fSlider;
   float fSlider2;
   float fToggle;
+  float fToggle2;
   float fRadio;
   float fRadio2;
 
