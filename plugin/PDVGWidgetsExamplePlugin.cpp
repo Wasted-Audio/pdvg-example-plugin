@@ -57,10 +57,10 @@ protected:
     case kSlider:
       parameter.name = "mySlider";
       parameter.symbol = "myslider";
-      parameter.hints = kParameterIsAutomatable;
-      parameter.ranges.def = 0.3f;
-      parameter.ranges.min = 0.0f;
-      parameter.ranges.max = 1.0f;
+      parameter.hints = kParameterIsAutomatable | kParameterIsLogarithmic;
+      parameter.ranges.def = 3.0f;
+      parameter.ranges.min = 0.001f;
+      parameter.ranges.max = 10.0f;
       break;
     case kSlider2:
       parameter.name = "mySlider2";
