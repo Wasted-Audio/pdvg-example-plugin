@@ -4,7 +4,7 @@
 #X obj 250 250 hradio 20 1 0 8 empty empty hradio\ label 0 0 0 10 #ffffff #191919 #ff0000 0;
 #X obj 100 100 tgl 25 0 empty empty empty 17 7 0 10 #191919 #ffffff #ffffff 0 1;
 #X obj 160 12 vsl 17 128 0.001 10 1 0 empty empty empty 0 -9 0 10 #191919 #ffffff #ffffff 0 1;
-#X obj 163 160 hsl 128 17 0 1 0 0 empty empty empty -2 -8 0 10 #191919 #ffffff #ffffff 0 1;
+#X obj 163 160 hsl 128 17 0 1 0 0 empty empty empty -2 -8 0 10 #191919 #ffffff #ffffff 0 0;
 #X text 45 262 test comment;
 #X text 428 97 comment wrapped, f 13;
 #X obj 160 -83 loadbang;
@@ -20,13 +20,11 @@
 #X restore 53 36 pd subsub;
 #X coords 0 0 1 1 200 140 1 0 0;
 #X restore 464 190 pd sub;
-#X floatatom 99 443 5 0 0 0 - - - 12;
 #X msg 160 -36 3;
-#X connect 4 0 12 0;
-#X connect 8 0 13 0;
+#X connect 8 0 12 0;
 #X connect 8 0 9 0;
 #X connect 8 0 10 0;
 #X connect 9 0 5 0;
 #X connect 10 0 1 0;
 #X connect 10 0 2 0;
-#X connect 13 0 4 0;
+#X connect 12 0 4 0;

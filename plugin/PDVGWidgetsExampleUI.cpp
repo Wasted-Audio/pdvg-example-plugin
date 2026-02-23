@@ -105,6 +105,7 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
     mySlider->setInverted(true);
     mySlider->setRange(0.0001f, 10.0f);
     mySlider->setUsingLogScale(true);
+    mySlider->setSteadyOnClick(true);
     mySlider->setColors(
         nvgRGBA(0x38, 0x38, 0x38, 0xFF),
         nvgRGBA(0x19, 0x19, 0x19, 0xFF),
