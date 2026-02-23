@@ -7,6 +7,8 @@ FILES_UI = plugin/PDVGWidgetsExampleUI.cpp \
 	dep/pdvg/src/Slider.cpp \
 	dep/pdvg/src/Toggle.cpp \
 	dep/pdvg/src/Radio.cpp \
+	dep/pdvg/src/Number.cpp \
+	dep/pdvg/src/Float.cpp \
 	dep/pdvg/src/Label.cpp \
 	dep/pdvg/src/Mainpatch.cpp \
 	dep/pdvg/src/Subpatch.cpp \

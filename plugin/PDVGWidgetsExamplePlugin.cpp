@@ -73,7 +73,7 @@ protected:
     case kToggle:
       parameter.name = "myToggle";
       parameter.symbol = "mytoggle";
-      parameter.hints = kParameterIsAutomatable;
+      parameter.hints = kParameterIsAutomatable | kParameterIsBoolean;
       parameter.ranges.def = 0.0f;
       parameter.ranges.min = 0.0f;
       parameter.ranges.max = 1.0f;
@@ -81,8 +81,8 @@ protected:
     case kToggle2:
       parameter.name = "myToggle2";
       parameter.symbol = "mytoggle2";
-      parameter.hints = kParameterIsAutomatable;
-      parameter.ranges.def = 0.0f;
+      parameter.hints = kParameterIsAutomatable | kParameterIsBoolean;
+      parameter.ranges.def = 1.0f;
       parameter.ranges.min = 0.0f;
       parameter.ranges.max = 1.0f;
       break;
@@ -101,6 +101,22 @@ protected:
       parameter.ranges.def = 3.0f;
       parameter.ranges.min = 0.0f;
       parameter.ranges.max = 7.0f;
+      break;
+    case kNumber:
+      parameter.name = "myNumber";
+      parameter.symbol = "myNumber";
+      parameter.hints = kParameterIsAutomatable;
+      parameter.ranges.def = 0.6f;
+      parameter.ranges.min = 0.0f;
+      parameter.ranges.max = 1.0f;
+      break;
+    case kFloat:
+      parameter.name = "myFloat";
+      parameter.symbol = "myFloat";
+      parameter.hints = kParameterIsAutomatable;
+      parameter.ranges.def = 0.3f;
+      parameter.ranges.min = 0.0f;
+      parameter.ranges.max = 1.0f;
       break;
     default:
       break;
@@ -130,6 +146,12 @@ protected:
     case kRadio2:
       value = fRadio2;
       break;
+    case kNumber:
+      value = fNumber;
+      break;
+    case kFloat:
+      value = fFloat;
+      break;
     default:
       break;
     }
@@ -158,6 +180,12 @@ protected:
     case kRadio2:
       fRadio2 = value;
       break;
+    case kNumber:
+      fNumber = value;
+      break;
+    case kFloat:
+      fFloat = value;
+      break;
     default:
       break;
     }
@@ -176,6 +204,8 @@ private:
   float fToggle2;
   float fRadio;
   float fRadio2;
+  float fNumber;
+  float fFloat;
 
   DISTRHO_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(PDVGWidgetsExamplePlugin)
 };

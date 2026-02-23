@@ -14,6 +14,8 @@
 #include "Toggle.hpp"
 #include "Radio.hpp"
 #include "Label.hpp"
+#include "Number.hpp"
+#include "Float.hpp"
 
 START_NAMESPACE_DISTRHO
 
@@ -22,7 +24,8 @@ START_NAMESPACE_DISTRHO
 class PDVGWidgetsExampleUI : public UI,
                              public PDSliderEventHandler::Callback,
                              public PDToggleEventHandler::Callback,
-                             public PDRadioEventHandler::Callback
+                             public PDRadioEventHandler::Callback,
+                             public PDNumberEventHandler::Callback
 {
 public:
     PDVGWidgetsExampleUI();
@@ -36,6 +39,7 @@ protected:
     void sliderValueChanged(SubWidget *const widget, float value) override;
     void switchClicked(SubWidget *const widget, bool down) override;
     void radioValueChanged(SubWidget *const widget, uint index) override;
+    void numberValueChanged(SubWidget *const widget, float value) override;
 
 private:
     ScopedPointer<PDMainpatch> mainPatch;
@@ -53,6 +57,8 @@ private:
     ScopedPointer<PDToggle> myToggle2;
     ScopedPointer<PDRadio> myRadio;
     ScopedPointer<PDRadio> myRadio2;
+    ScopedPointer<PDNumber> myNumber;
+    ScopedPointer<PDFloat> myFloat;
 
     DISTRHO_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(PDVGWidgetsExampleUI)
 };

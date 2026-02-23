@@ -84,7 +84,7 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
     myComment->setText(myCommentString);
     myComment->setColors(nvgRGBA(0xFF, 0xFF, 0xFF, 0xFF));
     myComment->setAbsolutePos(45 * scaleFactor, 264 * scaleFactor);
-    myComment->setSize(16 * std::string(myCommentString).length() * scaleFactor, 16 * scaleFactor);
+    myComment->setSize(8 * std::string(myCommentString).length() * scaleFactor, 16 * scaleFactor);
 
     // comment wrapped
     myComment2 = new PDLabel(mainPatch);
@@ -92,7 +92,7 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
     myComment2->setText(myComment2String);
     myComment2->setColors(nvgRGBA(0xFF, 0xFF, 0xFF, 0xFF));
     myComment2->setAbsolutePos(428 * scaleFactor, 98 * scaleFactor);
-    myComment2->setSize(16 * 13 * scaleFactor, 16 * scaleFactor);
+    myComment2->setSize(8 * std::string(myComment2String).length() * scaleFactor, 16 * scaleFactor);
 
     // vslider
     mySlider = new PDSlider(mainPatch, this);
@@ -165,6 +165,30 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
     );
     myRadio2->setLabel("hradio label", nvgRGBA(0xFF, 0x00, 0x00, 0xFF), 0 * scaleFactor, 0 * scaleFactor, 12 * scaleFactor);
     mainPatch->addManagedChild(myRadio2);
+
+    // number
+    myNumber = new PDNumber(mainPatch, this);
+    myNumber->setId(kNumber);
+    myNumber->setSize(8 * (2 + 4) * scaleFactor, (2 + 16) * scaleFactor);
+    myNumber->setAbsolutePos(272 * scaleFactor, 68 * scaleFactor);
+    myNumber->setColors(
+        nvgRGBA(0x19, 0x19, 0x19, 0xFF),
+        nvgRGBA(0x38, 0x38, 0x38, 0xFF),
+        nvgRGBA(0xFF, 0xAC, 0xAB, 0xFF)
+    );
+    mainPatch->addManagedChild(myNumber);
+
+    // float
+    myFloat = new PDFloat(mainPatch, this);
+    myFloat->setId(kFloat);
+    myFloat->setSize(8 * 5 * scaleFactor, (6 + 12) * scaleFactor);
+    myFloat->setAbsolutePos(272 * scaleFactor, 100 * scaleFactor);
+    myFloat->setColors(
+        nvgRGBA(0x19, 0x19, 0x19, 0xFF),
+        nvgRGBA(0x38, 0x38, 0x38, 0xFF),
+        nvgRGBA(0xFF, 0xAC, 0xAB, 0xFF)
+    );
+    mainPatch->addManagedChild(myFloat);
 }
 
 PDVGWidgetsExampleUI::~PDVGWidgetsExampleUI()
@@ -200,11 +224,20 @@ void PDVGWidgetsExampleUI::parameterChanged(uint32_t index, float value)
     case kToggle:
         myToggle->setDown(static_cast<bool>(value));
         break;
+    case kToggle2:
+        myToggle2->setDown(static_cast<bool>(value));
+        break;
     case kRadio:
         myRadio->setValue(value);
         break;
     case kRadio2:
         myRadio2->setValue(value);
+        break;
+    case kNumber:
+        myNumber->setValue(value);
+        break;
+    case kFloat:
+        myFloat->setValue(value);
         break;
     default:
         break;
@@ -233,6 +266,13 @@ void PDVGWidgetsExampleUI::radioValueChanged(SubWidget *const widget, uint index
     printf("radio clicked: %d\n", index);
     const uint id = widget->getId();
     setParameterValue(id, static_cast<float>(index));
+}
+
+void PDVGWidgetsExampleUI::numberValueChanged(SubWidget *const widget, float value)
+{
+    printf("number value changed: %f\n", value);
+    const uint id = widget->getId();
+    setParameterValue(id, value);
 }
 
 

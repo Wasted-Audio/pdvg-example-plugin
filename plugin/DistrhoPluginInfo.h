@@ -21,5 +21,7 @@ enum Parameters
     kToggle2,
     kRadio,
     kRadio2,
+    kNumber,
+    kFloat,
     kParameterCount
 };
