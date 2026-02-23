@@ -104,6 +104,7 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
     mySlider->setEndPos(0 * scaleFactor, 0 * scaleFactor);
     mySlider->setInverted(true);
     mySlider->setRange(0.0001f, 10.0f);
+    mySlider->setDefault(3.0f);
     mySlider->setUsingLogScale(true);
     mySlider->setSteadyOnClick(true);
     mySlider->setColors(
@@ -122,6 +123,8 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
     mySlider2->setStartPos(0 * scaleFactor, 0 * scaleFactor);
     mySlider2->setEndPos(128 * scaleFactor, 0 * scaleFactor);
     mySlider2->setHorizontal();
+    mySlider2->setRange(0.0f, 1.0f);
+    mySlider2->setDefault(0.6f);
     mySlider2->setColors(
         nvgRGBA(0x38, 0x38, 0x38, 0xFF),
         nvgRGBA(0x19, 0x19, 0x19, 0xFF),
