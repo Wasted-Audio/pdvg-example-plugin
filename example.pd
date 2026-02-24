@@ -27,7 +27,7 @@
 #X floatatom 272 100 5 0 0 0 - - - 12;
 #X obj 272 68 nbx 4 18 0 10 0 0 empty empty empty 0 -8 0 10 #191919 #ffffff #ffffff 0 256;
 #X msg 272 -36 0.3;
-#X text 428 97 comment verylongtextthatdoesnotfit wrapped, f 13;
+#X text 428 97 comment text verylongtextthatdoesnotfit wrapped text, f 13;
 #X connect 7 0 11 0;
 #X connect 7 0 8 0;
 #X connect 7 0 9 0;
