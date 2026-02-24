@@ -79,7 +79,7 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
     myCanvas->setLabel("tester", nvgRGBA(0x70, 0x70, 0x70, 0xFF), 20 * scaleFactor, 12 * scaleFactor, 16 * scaleFactor);
 
     // comment
-    myComment = new PDLabel(mainPatch);
+    myComment = new PDComment(mainPatch);
     std::string myCommentString = "test comment";
     myComment->setText(myCommentString);
     myComment->setColors(nvgRGBA(0xFF, 0xFF, 0xFF, 0xFF));
@@ -87,12 +87,12 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
     myComment->setSize(8 * std::string(myCommentString).length() * scaleFactor, 16 * scaleFactor);
 
     // comment wrapped
-    myComment2 = new PDLabel(mainPatch);
-    std::string myComment2String = "comment wrapped";
+    myComment2 = new PDComment(mainPatch);
+    std::string myComment2String = "comment verylongtextthatdoesnotfit wrapped";
     myComment2->setText(myComment2String);
     myComment2->setColors(nvgRGBA(0xFF, 0xFF, 0xFF, 0xFF));
     myComment2->setAbsolutePos(428 * scaleFactor, 98 * scaleFactor);
-    myComment2->setSize(8 * std::string(myComment2String).length() * scaleFactor, 16 * scaleFactor);
+    myComment2->setSize(8 * 13 * scaleFactor, 16 * scaleFactor);
 
     // vslider
     mySlider = new PDSlider(mainPatch, this);
