@@ -23,5 +23,8 @@ enum Parameters
     kRadio2,
     kNumber,
     kFloat,
+    kKnob,
+    kKnob2,
+    kKnob3,
     kParameterCount
 };

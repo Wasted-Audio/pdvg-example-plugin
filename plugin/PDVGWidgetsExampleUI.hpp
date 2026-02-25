@@ -7,6 +7,7 @@
 #include "DistrhoPluginInfo.h"
 #include "nanovg.h"
 
+#include "ExtraEventHandlers.hpp"
 #include "Mainpatch.hpp"
 #include "Subpatch.hpp"
 #include "Canvas.hpp"
@@ -16,6 +17,7 @@
 #include "Comment.hpp"
 #include "Number.hpp"
 #include "Float.hpp"
+#include "Knob.hpp"
 
 START_NAMESPACE_DISTRHO
 
@@ -25,7 +27,8 @@ class PDVGWidgetsExampleUI : public UI,
                              public PDSliderEventHandler::Callback,
                              public PDToggleEventHandler::Callback,
                              public PDRadioEventHandler::Callback,
-                             public PDNumberEventHandler::Callback
+                             public PDNumberEventHandler::Callback,
+                             public PDKnobEventHandler::Callback
 {
 public:
     PDVGWidgetsExampleUI();
@@ -40,6 +43,9 @@ protected:
     void switchClicked(SubWidget *const widget, bool down) override;
     void radioValueChanged(SubWidget *const widget, uint index) override;
     void numberValueChanged(SubWidget *const widget, float value) override;
+    void knobDragStarted(SubWidget *const widget) override;
+    void knobDragFinished(SubWidget *const widget) override;
+    void knobValueChanged(SubWidget *const widget, float value) override;
 
 private:
     ScopedPointer<PDMainpatch> mainPatch;
@@ -59,6 +65,9 @@ private:
     ScopedPointer<PDRadio> myRadio2;
     ScopedPointer<PDNumber> myNumber;
     ScopedPointer<PDFloat> myFloat;
+    ScopedPointer<PDKnob> myKnob;
+    ScopedPointer<PDKnob> myKnob2;
+    ScopedPointer<PDKnob> myKnob3;
 
     DISTRHO_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(PDVGWidgetsExampleUI)
 };

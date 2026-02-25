@@ -22,6 +22,8 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
     const float height = getHeight();
     const double scaleFactor = getScaleFactor();
 
+    const NVGcolor cnvColor = nvgRGBA(0x38, 0x38, 0x38, 0xFF);
+
     // mainpatch
     mainPatch = new PDMainpatch(this);
     mainPatch->setSize(width * scaleFactor, height * scaleFactor);
@@ -30,7 +32,7 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
     subPatch = new PDSubpatch(mainPatch);
     subPatch->setSize(200 * scaleFactor, 140 * scaleFactor);
     subPatch->setAbsolutePos(464 * scaleFactor, 190 * scaleFactor);
-    subPatch->setColors(nvgRGBA(0x38, 0x38, 0x38, 0xFF));
+    subPatch->setColors(cnvColor);
     mainPatch->addManagedChild(subPatch);
 
     // subCanvas
@@ -49,7 +51,7 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
     subsubPatch = new PDSubpatch(subPatch);
     subsubPatch->setSize(118 * scaleFactor, 75 * scaleFactor);
     subsubPatch->setAbsolutePos(53 * scaleFactor, 36 * scaleFactor);
-    subsubPatch->setColors(nvgRGBA(0x38, 0x38, 0x38, 0xFF));
+    subsubPatch->setColors(cnvColor);
     subPatch->addManagedChild(subsubPatch);
 
     // subsubcanvas
@@ -108,7 +110,7 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
     mySlider->setUsingLogScale(true);
     mySlider->setSteadyOnClick(true);
     mySlider->setColors(
-        nvgRGBA(0x38, 0x38, 0x38, 0xFF),
+        cnvColor,
         nvgRGBA(0x19, 0x19, 0x19, 0xFF),
         nvgRGBA(0xFF, 0xFF, 0xFF, 0xFF)
     );
@@ -126,7 +128,7 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
     mySlider2->setRange(0.0f, 1.0f);
     mySlider2->setDefault(0.6f);
     mySlider2->setColors(
-        nvgRGBA(0x38, 0x38, 0x38, 0xFF),
+        cnvColor,
         nvgRGBA(0x19, 0x19, 0x19, 0xFF),
         nvgRGBA(0xFF, 0xFF, 0xFF, 0xFF)
     );
@@ -176,7 +178,7 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
     myNumber->setAbsolutePos(272 * scaleFactor, 68 * scaleFactor);
     myNumber->setColors(
         nvgRGBA(0x19, 0x19, 0x19, 0xFF),
-        nvgRGBA(0x38, 0x38, 0x38, 0xFF),
+        cnvColor,
         nvgRGBA(0xFF, 0xAC, 0xAB, 0xFF)
     );
     mainPatch->addManagedChild(myNumber);
@@ -188,10 +190,58 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
     myFloat->setAbsolutePos(272 * scaleFactor, 100 * scaleFactor);
     myFloat->setColors(
         nvgRGBA(0x19, 0x19, 0x19, 0xFF),
-        nvgRGBA(0x38, 0x38, 0x38, 0xFF),
+        cnvColor,
         nvgRGBA(0xFF, 0xAC, 0xAB, 0xFF)
     );
     mainPatch->addManagedChild(myFloat);
+
+    // knob
+    myKnob = new PDKnob(mainPatch, this);
+    myKnob->setId(kKnob);
+    myKnob->setSize(50 * scaleFactor, 50 * scaleFactor);
+    myKnob->setAbsolutePos(259 * scaleFactor, 312 * scaleFactor);
+    myKnob->setRange(0.0f, 127.0f);
+    myKnob->setColors(
+        cnvColor,
+        nvgRGBA(0x19, 0x19, 0x19, 0xFF),
+        nvgRGBA(0xFF, 0xFF, 0xFF, 0xFF),
+        nvgRGBA(0x62, 0x62, 0x62, 0xFF)
+    );
+    mainPatch->addManagedChild(myKnob);
+
+    // knob
+    myKnob2 = new PDKnob(mainPatch, this);
+    myKnob2->setId(kKnob2);
+    myKnob2->setSize(50 * scaleFactor, 50 * scaleFactor);
+    myKnob2->setAbsolutePos(326 * scaleFactor, 312 * scaleFactor);
+    myKnob2->setRange(0.0f, 127.0f);
+    myKnob2->setShowArc(false);
+    myKnob2->setSteps(12);
+    myKnob2->setShowTicks(true);
+    myKnob2->setColors(
+        cnvColor,
+        nvgRGBA(0x19, 0x19, 0x19, 0xFF),
+        nvgRGBA(0xFF, 0xFF, 0xFF, 0xFF),
+        nvgRGBA(0x62, 0x62, 0x62, 0xFF)
+    );
+    mainPatch->addManagedChild(myKnob2);
+
+        // knob
+    myKnob3 = new PDKnob(mainPatch, this);
+    myKnob3->setId(kKnob3);
+    myKnob3->setSize(50 * scaleFactor, 50 * scaleFactor);
+    myKnob3->setAbsolutePos(395 * scaleFactor, 312 * scaleFactor);
+    myKnob3->setRange(1.0f, 127.0f);
+    myKnob3->setShowArc(false);
+    myKnob3->setDrawSquare(false);
+    myKnob3->setUsingLogScale(true);
+    myKnob3->setColors(
+        cnvColor,
+        nvgRGBA(0x19, 0x19, 0x19, 0xFF),
+        nvgRGBA(0xFF, 0xFF, 0xFF, 0xFF),
+        nvgRGBA(0x62, 0x62, 0x62, 0xFF)
+    );
+    mainPatch->addManagedChild(myKnob3);
 }
 
 PDVGWidgetsExampleUI::~PDVGWidgetsExampleUI()
@@ -204,10 +254,10 @@ void PDVGWidgetsExampleUI::onNanoDisplay()
     const float height = getHeight();
     const double scaleFactor = getScaleFactor();
 
-    auto bgColor = nvgRGBA(0x38, 0x38, 0x38, 0xFF);
+    auto cnvColor = nvgRGBA(0x38, 0x38, 0x38, 0xFF);
     NVGcontext* nvg = getContext();
 
-    nvgFillColor(nvg, bgColor);
+    nvgFillColor(nvg, cnvColor);
     nvgBeginPath(nvg);
     nvgRect(nvg, 0, 0, width * scaleFactor, height * scaleFactor);
     nvgFill(nvg);
@@ -242,6 +292,15 @@ void PDVGWidgetsExampleUI::parameterChanged(uint32_t index, float value)
     case kFloat:
         myFloat->setValue(value);
         break;
+    case kKnob:
+        myKnob->setValue(value);
+        break;
+    case kKnob2:
+        myKnob2->setValue(value);
+        break;
+    case kKnob3:
+        myKnob3->setValue(value);
+        break;
     default:
         break;
     }
@@ -274,6 +333,15 @@ void PDVGWidgetsExampleUI::radioValueChanged(SubWidget *const widget, uint index
 void PDVGWidgetsExampleUI::numberValueChanged(SubWidget *const widget, float value)
 {
     printf("number value changed: %f\n", value);
+    const uint id = widget->getId();
+    setParameterValue(id, value);
+}
+
+void PDVGWidgetsExampleUI::knobDragStarted(SubWidget *const widget) {}
+void PDVGWidgetsExampleUI::knobDragFinished(SubWidget *const widget) {}
+void PDVGWidgetsExampleUI::knobValueChanged(SubWidget *const widget, float value)
+{
+    printf("knob value changed: %f\n", value);
     const uint id = widget->getId();
     setParameterValue(id, value);
 }

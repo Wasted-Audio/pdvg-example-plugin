@@ -118,6 +118,30 @@ protected:
       parameter.ranges.min = 0.0f;
       parameter.ranges.max = 1.0f;
       break;
+    case kKnob:
+      parameter.name = "myKnob";
+      parameter.symbol = "myKnob";
+      parameter.hints = kParameterIsAutomatable;
+      parameter.ranges.def = 99.0f;
+      parameter.ranges.min = 0.0f;
+      parameter.ranges.max = 127.0f;
+      break;
+    case kKnob2:
+      parameter.name = "myKnob2";
+      parameter.symbol = "myKnob2";
+      parameter.hints = kParameterIsAutomatable;
+      parameter.ranges.def = 99.0f;
+      parameter.ranges.min = 0.0f;
+      parameter.ranges.max = 127.0f;
+      break;
+    case kKnob3:
+      parameter.name = "myKnob3";
+      parameter.symbol = "myKnob3";
+      parameter.hints = kParameterIsAutomatable | kParameterIsLogarithmic;
+      parameter.ranges.def = 99.0f;
+      parameter.ranges.min = 1.0f;
+      parameter.ranges.max = 127.0f;
+      break;
     default:
       break;
     }
@@ -151,6 +175,15 @@ protected:
       break;
     case kFloat:
       value = fFloat;
+      break;
+    case kKnob:
+      value = fKnob;
+      break;
+    case kKnob2:
+      value = fKnob2;
+      break;
+    case kKnob3:
+      value = fKnob3;
       break;
     default:
       break;
@@ -186,6 +219,15 @@ protected:
     case kFloat:
       fFloat = value;
       break;
+    case kKnob:
+      fKnob = value;
+      break;
+    case kKnob2:
+      fKnob2 = value;
+      break;
+    case kKnob3:
+      fKnob3 = value;
+      break;
     default:
       break;
     }
@@ -206,6 +248,9 @@ private:
   float fRadio2;
   float fNumber;
   float fFloat;
+  float fKnob;
+  float fKnob2;
+  float fKnob3;
 
   DISTRHO_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(PDVGWidgetsExamplePlugin)
 };
