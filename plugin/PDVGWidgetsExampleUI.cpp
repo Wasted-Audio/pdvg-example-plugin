@@ -243,7 +243,7 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
     myKnob3->setShowArc(false);
     myKnob3->setDrawSquare(false);
     myKnob3->setUsingLogScale(true);
-    myKnob3->setJumpOnClick(true);
+    // myKnob3->setJumpOnClick(true);
     myKnob3->setColors(
         cnvColor,
         nvgRGBA(0x19, 0x19, 0x19, 0xFF),
