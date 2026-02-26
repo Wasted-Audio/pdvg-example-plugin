@@ -231,6 +231,8 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
         nvgRGBA(0xFF, 0xFF, 0xFF, 0xFF),
         nvgRGBA(0x62, 0x62, 0x62, 0xFF)
     );
+    myKnob2->setLabelStyle(nvgRGBA(0xFF, 0xFF, 0xFF, 0xFF), 0 * scaleFactor, 0 * scaleFactor, 12 * scaleFactor);
+    myKnob2->setShowLabel(LabelShow::ALWAYS);
     mainPatch->addManagedChild(myKnob2);
 
     // knob
