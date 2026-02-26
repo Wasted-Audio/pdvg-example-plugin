@@ -202,7 +202,9 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
     myKnob->setId(kKnob);
     myKnob->setSize(50 * scaleFactor, 50 * scaleFactor);
     myKnob->setAbsolutePos(259 * scaleFactor, 312 * scaleFactor);
+    myKnob->setKnobArea(0.0f, 0.0f, 50 * scaleFactor, 50 * scaleFactor);
     myKnob->setRange(0.0f, 127.0f);
+    myKnob->setDefault(99.0f);
     myKnob->setColors(
         cnvColor,
         nvgRGBA(0x19, 0x19, 0x19, 0xFF),
@@ -216,7 +218,9 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
     myKnob2->setId(kKnob2);
     myKnob2->setSize(50 * scaleFactor, 50 * scaleFactor);
     myKnob2->setAbsolutePos(326 * scaleFactor, 312 * scaleFactor);
+    myKnob2->setKnobArea(0.0f, 0.0f, 50 * scaleFactor, 50 * scaleFactor);
     myKnob2->setRange(0.0f, 127.0f);
+    myKnob2->setDefault(99.0f);
     myKnob2->setShowArc(false);
     myKnob2->setSteps(12);
     myKnob2->setShowTicks(true);
@@ -233,10 +237,13 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
     myKnob3->setId(kKnob3);
     myKnob3->setSize(50 * scaleFactor, 50 * scaleFactor);
     myKnob3->setAbsolutePos(395 * scaleFactor, 312 * scaleFactor);
+    myKnob3->setKnobArea(0.0f, 0.0f, 50 * scaleFactor, 50 * scaleFactor);
     myKnob3->setRange(1.0f, 127.0f);
+    myKnob3->setDefault(99.0f);
     myKnob3->setShowArc(false);
     myKnob3->setDrawSquare(false);
     myKnob3->setUsingLogScale(true);
+    myKnob3->setJumpOnClick(true);
     myKnob3->setColors(
         cnvColor,
         nvgRGBA(0x19, 0x19, 0x19, 0xFF),
