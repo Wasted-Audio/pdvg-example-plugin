@@ -223,6 +223,7 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
     myKnob2->setDefault(99.0f);
     myKnob2->setShowArc(false);
     myKnob2->setSteps(12);
+    myKnob2->setDiscrete(true);
     myKnob2->setShowTicks(true);
     myKnob2->setColors(
         cnvColor,
