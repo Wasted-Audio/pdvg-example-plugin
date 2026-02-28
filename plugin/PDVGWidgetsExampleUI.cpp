@@ -25,6 +25,8 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
     const NVGcolor cnvColor = nvgRGBA(0x38, 0x38, 0x38, 0xFF);
     const NVGcolor textColor = nvgRGBA(0xFF, 0xFF, 0xFF, 0xFF);
     const NVGcolor ioColor = nvgRGBA(0x62, 0x62, 0x62, 0xFF);
+    const NVGcolor bgColor = nvgRGBA(0x19, 0x19, 0x19, 0xFF);
+    const NVGcolor selColor = nvgRGBA(0xFF, 0xAC, 0xAB, 0xFF);
 
     // mainpatch
     mainPatch = new PDMainpatch(this);
@@ -185,7 +187,7 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
         ioColor,
         nvgRGBA(0x19, 0x19, 0x19, 0xFF),
         nvgRGBA(0xFF, 0xFF, 0xFF, 0xFF),
-        nvgRGBA(0xFF, 0xAC, 0xAB, 0xFF)
+        selColor
     );
     mainPatch->addManagedChild(myNumber);
 
@@ -195,9 +197,11 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
     myFloat->setSize(8 * 5 * scaleFactor, (6 + 12) * scaleFactor);
     myFloat->setAbsolutePos(272 * scaleFactor, 100 * scaleFactor);
     myFloat->setColors(
-        nvgRGBA(0x19, 0x19, 0x19, 0xFF),
         cnvColor,
-        nvgRGBA(0xFF, 0xAC, 0xAB, 0xFF)
+        ioColor,
+        bgColor,
+        textColor,
+        selColor
     );
     mainPatch->addManagedChild(myFloat);
 
@@ -256,6 +260,8 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
     myKnob3->setDefault(99.0f);
     myKnob3->setShowArc(false);
     myKnob3->setDrawSquare(false);
+    myKnob3->setSteps(5);
+    myKnob3->setShowTicks(true);
     myKnob3->setUsingLogScale(PDKnobEventHandler::LogMode::LOG);
     myKnob3->setColors(
         cnvColor,
