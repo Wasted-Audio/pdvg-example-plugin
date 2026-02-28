@@ -23,6 +23,7 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
     const double scaleFactor = getScaleFactor();
 
     const NVGcolor cnvColor = nvgRGBA(0x38, 0x38, 0x38, 0xFF);
+    const NVGcolor textColor = nvgRGBA(0xFF, 0xFF, 0xFF, 0xFF);
 
     // mainpatch
     mainPatch = new PDMainpatch(this);
@@ -205,6 +206,9 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
     myKnob->setKnobArea(0.0f, 0.0f, 50 * scaleFactor, 50 * scaleFactor);
     myKnob->setRange(0.0f, 127.0f);
     myKnob->setDefault(99.0f);
+    myKnob->setShowTicks(true);
+    myKnob->setSteps(16);
+    // myKnob->setJumpOnClick(true);
     myKnob->setColors(
         cnvColor,
         nvgRGBA(0x19, 0x19, 0x19, 0xFF),
@@ -213,7 +217,7 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
     );
     mainPatch->addManagedChild(myKnob);
 
-    // knob
+    // knob2
     myKnob2 = new PDKnob(mainPatch, this);
     myKnob2->setId(kKnob2);
     myKnob2->setSize(50 * scaleFactor, 50 * scaleFactor);
@@ -231,11 +235,11 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
         nvgRGBA(0xFF, 0xFF, 0xFF, 0xFF),
         nvgRGBA(0x62, 0x62, 0x62, 0xFF)
     );
-    myKnob2->setLabelStyle(nvgRGBA(0xFF, 0xFF, 0xFF, 0xFF), 0 * scaleFactor, 0 * scaleFactor, 12 * scaleFactor);
+    myKnob2->setLabelStyle(textColor, 0 * scaleFactor, 0 * scaleFactor, 12 * scaleFactor);
     myKnob2->setShowLabel(LabelShow::ACTIVE);
     mainPatch->addManagedChild(myKnob2);
 
-    // knob
+    // knob3
     myKnob3 = new PDKnob(mainPatch, this);
     myKnob3->setId(kKnob3);
     myKnob3->setSize(50 * scaleFactor, 50 * scaleFactor);
@@ -246,13 +250,14 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
     myKnob3->setShowArc(false);
     myKnob3->setDrawSquare(false);
     myKnob3->setUsingLogScale(true);
-    // myKnob3->setJumpOnClick(true);
     myKnob3->setColors(
         cnvColor,
         nvgRGBA(0x19, 0x19, 0x19, 0xFF),
         nvgRGBA(0xFF, 0xFF, 0xFF, 0xFF),
         nvgRGBA(0x62, 0x62, 0x62, 0xFF)
     );
+    myKnob3->setLabelStyle(textColor, 4 * scaleFactor, 59 * scaleFactor, 20 * scaleFactor);
+    myKnob3->setShowLabel(LabelShow::ALWAYS);
     mainPatch->addManagedChild(myKnob3);
 }
 
