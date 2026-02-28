@@ -212,12 +212,16 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
     myKnob->setShowTicks(true);
     myKnob->setSteps(16);
     // myKnob->setJumpOnClick(true);
+    myKnob->setUsingLogScale(PDKnobEventHandler::LogMode::EXP);
+    myKnob->setExpFactor(5.0f);
     myKnob->setColors(
         cnvColor,
         nvgRGBA(0x19, 0x19, 0x19, 0xFF),
         nvgRGBA(0xFF, 0xFF, 0xFF, 0xFF),
         nvgRGBA(0x62, 0x62, 0x62, 0xFF)
     );
+    myKnob->setLabelStyle(textColor, 6 * scaleFactor, -15 * scaleFactor, 12 * scaleFactor);
+    myKnob->setShowLabel(LabelShow::ALWAYS);
     mainPatch->addManagedChild(myKnob);
 
     // knob2
@@ -252,7 +256,7 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
     myKnob3->setDefault(99.0f);
     myKnob3->setShowArc(false);
     myKnob3->setDrawSquare(false);
-    myKnob3->setUsingLogScale(true);
+    myKnob3->setUsingLogScale(PDKnobEventHandler::LogMode::LOG);
     myKnob3->setColors(
         cnvColor,
         nvgRGBA(0x19, 0x19, 0x19, 0xFF),

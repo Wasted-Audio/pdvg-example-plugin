@@ -28,7 +28,7 @@
 #X obj 272 68 nbx 4 18 0 10 0 0 empty empty empty 0 -8 0 10 #191919 #ffffff #ffffff 0 256;
 #X msg 272 -36 0.3;
 #X text 428 97 comment text verylongtextthatdoesnotfit wrapped text, f 13;
-#X obj 259 312 knob 50 0 127 0 99 empty empty #191919 #626262 #FFFFFF 1 0 16 0 1 270 0 1 1 empty empty 0 12 6 -15 0 1 1 0;
+#X obj 259 312 knob 50 0 127 5 99 empty empty #191919 #626262 #FFFFFF 1 0 16 0 1 270 0 0 1 empty empty 1 12 6 -15 0 1 1 0;
 #X obj 326 312 knob 50 0 127 0 99 empty empty #191919 #626262 #FFFFFF 1 0 12 1 0 270 0 0 0 empty empty 2 12 0 0 0 1 1 0;
 #X obj 395 312 knob 50 1 127 1 99 empty empty #191919 #626262 #FFFFFF 0 0 0 0 0 270 0 0 1 empty empty 1 20 4 59 0 1 0 0;
 #X connect 7 0 11 0;
