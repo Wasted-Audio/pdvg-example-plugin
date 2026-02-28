@@ -24,6 +24,7 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
 
     const NVGcolor cnvColor = nvgRGBA(0x38, 0x38, 0x38, 0xFF);
     const NVGcolor textColor = nvgRGBA(0xFF, 0xFF, 0xFF, 0xFF);
+    const NVGcolor ioColor = nvgRGBA(0x62, 0x62, 0x62, 0xFF);
 
     // mainpatch
     mainPatch = new PDMainpatch(this);
@@ -180,8 +181,10 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
     myNumber->setSize(8 * (2 + 4) * scaleFactor, (2 + 16) * scaleFactor);
     myNumber->setAbsolutePos(272 * scaleFactor, 68 * scaleFactor);
     myNumber->setColors(
-        nvgRGBA(0x19, 0x19, 0x19, 0xFF),
         cnvColor,
+        ioColor,
+        nvgRGBA(0x19, 0x19, 0x19, 0xFF),
+        nvgRGBA(0xFF, 0xFF, 0xFF, 0xFF),
         nvgRGBA(0xFF, 0xAC, 0xAB, 0xFF)
     );
     mainPatch->addManagedChild(myNumber);
