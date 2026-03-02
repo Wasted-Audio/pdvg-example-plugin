@@ -18,6 +18,7 @@
 #include "Number.hpp"
 #include "Float.hpp"
 #include "Knob.hpp"
+#include "Bang.hpp"
 
 START_NAMESPACE_DISTRHO
 
@@ -28,7 +29,8 @@ class PDVGWidgetsExampleUI : public UI,
                              public PDToggleEventHandler::Callback,
                              public PDRadioEventHandler::Callback,
                              public PDNumberEventHandler::Callback,
-                             public PDKnobEventHandler::Callback
+                             public PDKnobEventHandler::Callback,
+                             public PDBangEventHandler::Callback
 {
 public:
     PDVGWidgetsExampleUI();
@@ -41,6 +43,7 @@ protected:
     void sliderDragFinished(SubWidget *const widget) override;
     void sliderValueChanged(SubWidget *const widget, float value) override;
     void switchClicked(SubWidget *const widget, bool down) override;
+    void bangClicked(SubWidget *const widget) override;
     void radioValueChanged(SubWidget *const widget, uint index) override;
     void numberValueChanged(SubWidget *const widget, float value) override;
     void knobDragStarted(SubWidget *const widget) override;
@@ -68,6 +71,7 @@ private:
     ScopedPointer<PDKnob> myKnob;
     ScopedPointer<PDKnob> myKnob2;
     ScopedPointer<PDKnob> myKnob3;
+    ScopedPointer<PDBang> myBang;
 
     DISTRHO_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(PDVGWidgetsExampleUI)
 };

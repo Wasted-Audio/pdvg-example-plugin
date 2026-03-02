@@ -142,6 +142,14 @@ protected:
       parameter.ranges.min = 1.0f;
       parameter.ranges.max = 127.0f;
       break;
+    case kBang:
+      parameter.name = "myBang";
+      parameter.symbol = "myBang";
+      parameter.hints = kParameterIsAutomatable | kParameterIsTrigger;
+      parameter.ranges.def = 0.0f;
+      parameter.ranges.min = 0.0f;
+      parameter.ranges.max = 1.0f;
+      break;
     default:
       break;
     }
@@ -251,6 +259,7 @@ private:
   float fKnob;
   float fKnob2;
   float fKnob3;
+  float fBang;
 
   DISTRHO_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(PDVGWidgetsExamplePlugin)
 };

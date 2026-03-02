@@ -26,5 +26,6 @@ enum Parameters
     kKnob,
     kKnob2,
     kKnob3,
+    kBang,
     kParameterCount
 };

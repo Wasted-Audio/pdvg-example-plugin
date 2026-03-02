@@ -17,7 +17,6 @@ START_NAMESPACE_DISTRHO
 PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
     : UI(DISTRHO_UI_DEFAULT_WIDTH, DISTRHO_UI_DEFAULT_HEIGHT)
 {
-
     const float width = getWidth();
     const float height = getHeight();
     const double scaleFactor = getScaleFactor();
@@ -27,6 +26,7 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
     const NVGcolor ioColor = nvgRGBA(0x62, 0x62, 0x62, 0xFF);
     const NVGcolor bgColor = nvgRGBA(0x19, 0x19, 0x19, 0xFF);
     const NVGcolor selColor = nvgRGBA(0xFF, 0xAC, 0xAB, 0xFF);
+    const NVGcolor outColor = nvgRGBA(0x38, 0x38, 0x38, 0xFF);
 
     // mainpatch
     mainPatch = new PDMainpatch(this);
@@ -272,6 +272,20 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
     myKnob3->setLabelStyle(textColor, 4 * scaleFactor, 59 * scaleFactor, 20 * scaleFactor);
     myKnob3->setShowLabel(LabelShow::ALWAYS);
     mainPatch->addManagedChild(myKnob3);
+
+    // bang
+    myBang = new PDBang(mainPatch, this);
+    myBang->setId(kBang);
+    myBang->setSize(25 * scaleFactor, 25 * scaleFactor);
+    myBang->setAbsolutePos(100 * scaleFactor, 190 * scaleFactor);
+    myBang->setColors(
+        ioColor,
+        outColor,
+        nvgRGBA(0x19, 0x19, 0x19, 0xFF),
+        nvgRGBA(0xFF, 0xFF, 0xFF, 0xFF)
+    );
+    myBang->setLabel("Banger", nvgRGBA(0xFF, 0xFF, 0xFF, 0xFF), 0 * scaleFactor, -10 * scaleFactor, 12 * scaleFactor);
+    mainPatch->addManagedChild(myBang);
 }
 
 PDVGWidgetsExampleUI::~PDVGWidgetsExampleUI()
@@ -351,6 +365,13 @@ void PDVGWidgetsExampleUI::switchClicked(SubWidget *const widget, bool down)
     printf("switch clicked: %d\n", down);
     const uint id = widget->getId();
     setParameterValue(id, static_cast<float>(down));
+}
+
+void PDVGWidgetsExampleUI::bangClicked(SubWidget *const widget)
+{
+    printf("bang clicked\n");
+    const uint id = widget->getId();
+    setParameterValue(id, 1.0f);
 }
 
 void PDVGWidgetsExampleUI::radioValueChanged(SubWidget *const widget, uint index)
