@@ -259,6 +259,7 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
     myKnob3->setRange(1.0f, 127.0f);
     myKnob3->setDefault(99.0f);
     myKnob3->setShowArc(false);
+    myKnob3->setAngular(180, 90);
     myKnob3->setDrawSquare(false);
     myKnob3->setSteps(5);
     myKnob3->setShowTicks(true);
