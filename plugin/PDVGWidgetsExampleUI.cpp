@@ -215,7 +215,7 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
     myKnob->setDefault(99.0f);
     myKnob->setShowTicks(true);
     myKnob->setSteps(16);
-    // myKnob->setJumpOnClick(true);
+    myKnob->setJumpOnClick(true);
     myKnob->setUsingLogScale(PDKnobEventHandler::LogMode::EXP);
     myKnob->setExpFactor(5.0f);
     myKnob->setColors(
