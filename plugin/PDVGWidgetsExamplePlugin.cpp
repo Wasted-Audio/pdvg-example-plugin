@@ -114,9 +114,9 @@ protected:
       parameter.name = "myFloat";
       parameter.symbol = "myFloat";
       parameter.hints = kParameterIsAutomatable;
-      parameter.ranges.def = 0.3f;
-      parameter.ranges.min = 0.0f;
-      parameter.ranges.max = 1.0f;
+      parameter.ranges.def = 3.33f;
+      parameter.ranges.min = -10.0f;
+      parameter.ranges.max = 10.0f;
       break;
     case kKnob:
       parameter.name = "myKnob";

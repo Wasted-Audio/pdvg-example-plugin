@@ -15,6 +15,7 @@ FILES_UI = plugin/PDVGWidgetsExampleUI.cpp \
 	dep/pdvg/src/Comment.cpp \
 	dep/pdvg/src/Mainpatch.cpp \
 	dep/pdvg/src/Subpatch.cpp \
+	dep/pdvg/src/DragNum.cpp \
 	dep/pdvg/src/Fonts/*.cpp
 
 

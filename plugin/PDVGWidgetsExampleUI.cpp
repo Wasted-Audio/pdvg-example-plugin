@@ -196,6 +196,8 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
     myFloat->setId(kFloat);
     myFloat->setSize(8 * 5 * scaleFactor, (6 + 12) * scaleFactor);
     myFloat->setAbsolutePos(272 * scaleFactor, 100 * scaleFactor);
+    myFloat->setRange(-10.0f, 10.0f);
+    myFloat->setDefault(3.33f);
     myFloat->setColors(
         cnvColor,
         ioColor,
