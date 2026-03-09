@@ -207,6 +207,7 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
         textColor,
         selColor
     );
+    myFloat->setLabel("test", textColor, 14 * scaleFactor, LabelPos::Left);
     mainPatch->addManagedChild(myFloat);
 
     // knob
