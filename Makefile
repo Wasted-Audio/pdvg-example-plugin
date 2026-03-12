@@ -1,5 +1,5 @@
 NAME = PDVGWidgetsExamplePlugin
-FILES_DSP = $(filter-out PDVGWidgetsExampleUI.cpp, $(wildcard plugin/*.cpp))
+FILES_DSP = $(filter-out plugin/PDVGWidgetsExampleUI.cpp, $(wildcard plugin/*.cpp))
 FILES_DSP += $(wildcard *.c)
 FILES_UI = plugin/PDVGWidgetsExampleUI.cpp \
 	dep/pdvg/src/ExtraEventHandlers.cpp \

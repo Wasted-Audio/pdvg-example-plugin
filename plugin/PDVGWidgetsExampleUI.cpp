@@ -21,13 +21,6 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
     const float height = getHeight();
     const double scaleFactor = getScaleFactor();
 
-    const NVGcolor cnvColor = nvgRGBA(0x38, 0x38, 0x38, 0xFF);
-    const NVGcolor textColor = nvgRGBA(0xFF, 0xFF, 0xFF, 0xFF);
-    const NVGcolor ioColor = nvgRGBA(0x62, 0x62, 0x62, 0xFF);
-    const NVGcolor bgColor = nvgRGBA(0x19, 0x19, 0x19, 0xFF);
-    const NVGcolor selColor = nvgRGBA(0xFF, 0xAC, 0xAB, 0xFF);
-    const NVGcolor outColor = nvgRGBA(0x38, 0x38, 0x38, 0xFF);
-
     // mainpatch
     mainPatch = new PDMainpatch(this);
     mainPatch->setSize(width * scaleFactor, height * scaleFactor);
@@ -36,7 +29,6 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
     subPatch = new PDSubpatch(mainPatch);
     subPatch->setSize(200 * scaleFactor, 140 * scaleFactor);
     subPatch->setAbsolutePos(464 * scaleFactor, 190 * scaleFactor);
-    subPatch->setColors(cnvColor);
     mainPatch->addManagedChild(subPatch);
 
     // subCanvas
@@ -55,7 +47,6 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
     subsubPatch = new PDSubpatch(subPatch);
     subsubPatch->setSize(118 * scaleFactor, 75 * scaleFactor);
     subsubPatch->setAbsolutePos(53 * scaleFactor, 36 * scaleFactor);
-    subsubPatch->setColors(cnvColor);
     subPatch->addManagedChild(subsubPatch);
 
     // subsubcanvas
@@ -79,9 +70,7 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
     myCanvas = new PDCanvas(mainPatch);
     myCanvas->setSize(269 * scaleFactor, 181 * scaleFactor);
     myCanvas->setAbsolutePos(75 * scaleFactor, 49 * scaleFactor);
-    myCanvas->setColors(
-        nvgRGBA(0x63, 0xFF, 0xA9, 0xFF)
-    );
+    myCanvas->setColors(nvgRGBA(0x63, 0xFF, 0xA9, 0xFF));
     myCanvas->setLabel("tester", nvgRGBA(0x70, 0x70, 0x70, 0xFF), 20 * scaleFactor, 12 * scaleFactor, 16 * scaleFactor);
 
     // comment
@@ -89,7 +78,6 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
     std::string myCommentString = "test comment";
     myComment->setText(myCommentString);
     myComment->setFontSize(15 * scaleFactor);
-    myComment->setColors(nvgRGBA(0xFF, 0xFF, 0xFF, 0xFF));
     myComment->setAbsolutePos(45 * scaleFactor, 264 * scaleFactor);
     myComment->setSize(8 * std::string(myCommentString).length() * scaleFactor, 15 * scaleFactor);
 
@@ -98,7 +86,6 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
     std::string myComment2String = "comment text verylongtextthatdoesnotfit wrapped text";
     myComment2->setText(myComment2String);
     myComment2->setFontSize(15 * scaleFactor);
-    myComment2->setColors(nvgRGBA(0xFF, 0xFF, 0xFF, 0xFF));
     myComment2->setAbsolutePos(428 * scaleFactor, 98 * scaleFactor);
     myComment2->setSize((6 + 7 * 13) * scaleFactor, 15 * scaleFactor);
 
@@ -116,7 +103,6 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
     mySlider->setUsingLogScale(true);
     mySlider->setSteadyOnClick(true);
     mySlider->setColors(
-        cnvColor,
         nvgRGBA(0x19, 0x19, 0x19, 0xFF),
         nvgRGBA(0xFF, 0xFF, 0xFF, 0xFF)
     );
@@ -134,7 +120,6 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
     mySlider2->setRange(0.0f, 1.0f);
     mySlider2->setDefault(0.6f);
     mySlider2->setColors(
-        cnvColor,
         nvgRGBA(0x19, 0x19, 0x19, 0xFF),
         nvgRGBA(0xFF, 0xFF, 0xFF, 0xFF)
     );
@@ -185,11 +170,8 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
     myNumber->setRange(0.0f, 1000.0f);
     myNumber->setDefault(666.6f);
     myNumber->setColors(
-        cnvColor,
-        ioColor,
         nvgRGBA(0x19, 0x19, 0x19, 0xFF),
-        nvgRGBA(0xFF, 0xFF, 0xFF, 0xFF),
-        selColor
+        nvgRGBA(0xFF, 0xFF, 0xFF, 0xFF)
     );
     mainPatch->addManagedChild(myNumber);
 
@@ -200,14 +182,7 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
     myFloat->setAbsolutePos(272 * scaleFactor, 100 * scaleFactor);
     myFloat->setRange(-10.0f, 10.0f);
     myFloat->setDefault(3.33f);
-    myFloat->setColors(
-        cnvColor,
-        ioColor,
-        bgColor,
-        textColor,
-        selColor
-    );
-    myFloat->setLabel("test", textColor, 14 * scaleFactor, LabelPos::Left);
+    myFloat->setLabel("test", 14 * scaleFactor, LabelPos::Left);
     mainPatch->addManagedChild(myFloat);
 
     // knob
@@ -224,12 +199,11 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
     myKnob->setUsingLogScale(PDKnobEventHandler::LogMode::EXP);
     myKnob->setExpFactor(5.0f);
     myKnob->setColors(
-        cnvColor,
         nvgRGBA(0x19, 0x19, 0x19, 0xFF),
         nvgRGBA(0xFF, 0xFF, 0xFF, 0xFF),
         nvgRGBA(0x62, 0x62, 0x62, 0xFF)
     );
-    myKnob->setLabelStyle(textColor, 6 * scaleFactor, -15 * scaleFactor, 12 * scaleFactor);
+    myKnob->setLabelStyle(6 * scaleFactor, -15 * scaleFactor, 12 * scaleFactor);
     myKnob->setShowLabel(LabelShow::ALWAYS);
     mainPatch->addManagedChild(myKnob);
 
@@ -246,12 +220,11 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
     myKnob2->setDiscrete(true);
     myKnob2->setShowTicks(true);
     myKnob2->setColors(
-        cnvColor,
         nvgRGBA(0x19, 0x19, 0x19, 0xFF),
         nvgRGBA(0xFF, 0xFF, 0xFF, 0xFF),
         nvgRGBA(0x62, 0x62, 0x62, 0xFF)
     );
-    myKnob2->setLabelStyle(textColor, 0 * scaleFactor, 0 * scaleFactor, 12 * scaleFactor);
+    myKnob2->setLabelStyle(0 * scaleFactor, 0 * scaleFactor, 12 * scaleFactor);
     myKnob2->setShowLabel(LabelShow::ACTIVE);
     mainPatch->addManagedChild(myKnob2);
 
@@ -270,12 +243,11 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
     myKnob3->setShowTicks(true);
     myKnob3->setUsingLogScale(PDKnobEventHandler::LogMode::LOG);
     myKnob3->setColors(
-        cnvColor,
         nvgRGBA(0x19, 0x19, 0x19, 0xFF),
         nvgRGBA(0xFF, 0xFF, 0xFF, 0xFF),
         nvgRGBA(0x62, 0x62, 0x62, 0xFF)
     );
-    myKnob3->setLabelStyle(textColor, 4 * scaleFactor, 59 * scaleFactor, 20 * scaleFactor);
+    myKnob3->setLabelStyle(4 * scaleFactor, 59 * scaleFactor, 20 * scaleFactor);
     myKnob3->setShowLabel(LabelShow::ALWAYS);
     mainPatch->addManagedChild(myKnob3);
 
@@ -285,8 +257,6 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
     myBang->setSize(25 * scaleFactor, 25 * scaleFactor);
     myBang->setAbsolutePos(100 * scaleFactor, 190 * scaleFactor);
     myBang->setColors(
-        ioColor,
-        outColor,
         nvgRGBA(0x19, 0x19, 0x19, 0xFF),
         nvgRGBA(0xFF, 0xFF, 0xFF, 0xFF)
     );
@@ -304,10 +274,9 @@ void PDVGWidgetsExampleUI::onNanoDisplay()
     const float height = getHeight();
     const double scaleFactor = getScaleFactor();
 
-    auto cnvColor = nvgRGBA(0x38, 0x38, 0x38, 0xFF);
     NVGcontext* nvg = getContext();
 
-    nvgFillColor(nvg, cnvColor);
+    nvgFillColor(nvg, Colors::cnvColor);
     nvgBeginPath(nvg);
     nvgRect(nvg, 0, 0, width * scaleFactor, height * scaleFactor);
     nvgFill(nvg);
