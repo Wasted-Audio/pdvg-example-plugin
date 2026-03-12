@@ -182,8 +182,8 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
     myNumber->setId(kNumber);
     myNumber->setSize(8 * (2 + 4) * scaleFactor, (2 + 16) * scaleFactor);
     myNumber->setAbsolutePos(272 * scaleFactor, 68 * scaleFactor);
-    myNumber->setRange(0.0f, 1.0f);
-    myNumber->setDefault(0.6f);
+    myNumber->setRange(0.0f, 1000.0f);
+    myNumber->setDefault(666.6f);
     myNumber->setColors(
         cnvColor,
         ioColor,

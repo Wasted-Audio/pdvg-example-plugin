@@ -106,15 +106,15 @@ protected:
       parameter.name = "myNumber";
       parameter.symbol = "myNumber";
       parameter.hints = kParameterIsAutomatable;
-      parameter.ranges.def = 0.6f;
+      parameter.ranges.def = 666.6f;
       parameter.ranges.min = 0.0f;
-      parameter.ranges.max = 1.0f;
+      parameter.ranges.max = 1000.0f;
       break;
     case kFloat:
       parameter.name = "myFloat";
       parameter.symbol = "myFloat";
       parameter.hints = kParameterIsAutomatable;
-      parameter.ranges.def = 3.33f;
+      parameter.ranges.def = 3.333f;
       parameter.ranges.min = -10.0f;
       parameter.ranges.max = 10.0f;
       break;
