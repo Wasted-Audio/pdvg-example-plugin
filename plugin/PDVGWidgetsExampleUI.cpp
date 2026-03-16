@@ -326,8 +326,6 @@ void PDVGWidgetsExampleUI::parameterChanged(uint32_t index, float value)
     repaint();
 }
 
-void PDVGWidgetsExampleUI::sliderDragStarted(SubWidget *const widget) {}
-void PDVGWidgetsExampleUI::sliderDragFinished(SubWidget *const widget) {}
 void PDVGWidgetsExampleUI::sliderValueChanged(SubWidget *const widget, float value)
 {
     printf("value changed: %f\n", value);
@@ -363,8 +361,6 @@ void PDVGWidgetsExampleUI::numberValueChanged(SubWidget *const widget, float val
     setParameterValue(id, value);
 }
 
-void PDVGWidgetsExampleUI::knobDragStarted(SubWidget *const widget) {}
-void PDVGWidgetsExampleUI::knobDragFinished(SubWidget *const widget) {}
 void PDVGWidgetsExampleUI::knobValueChanged(SubWidget *const widget, float value)
 {
     printf("knob value changed: %f\n", value);

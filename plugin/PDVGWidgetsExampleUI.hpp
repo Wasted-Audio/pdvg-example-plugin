@@ -39,15 +39,11 @@ public:
 protected:
     void parameterChanged(uint32_t index, float value) override;
     void onNanoDisplay() override;
-    void sliderDragStarted(SubWidget *const widget) override;
-    void sliderDragFinished(SubWidget *const widget) override;
     void sliderValueChanged(SubWidget *const widget, float value) override;
     void switchClicked(SubWidget *const widget, bool down) override;
     void bangClicked(SubWidget *const widget) override;
     void radioValueChanged(SubWidget *const widget, uint index) override;
     void numberValueChanged(SubWidget *const widget, float value) override;
-    void knobDragStarted(SubWidget *const widget) override;
-    void knobDragFinished(SubWidget *const widget) override;
     void knobValueChanged(SubWidget *const widget, float value) override;
 
 private:
