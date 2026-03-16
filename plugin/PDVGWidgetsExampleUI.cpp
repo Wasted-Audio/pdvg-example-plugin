@@ -83,11 +83,11 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
 
     // comment wrapped
     myComment2 = new PDComment(mainPatch);
-    std::string myComment2String = "comment text verylongtextthatdoesnotfit wrapped text";
+    std::string myComment2String = "comment text verylongtextthatdoesnotfitatallonthis wrapped text";
     myComment2->setText(myComment2String);
     myComment2->setFontSize(15 * scaleFactor);
     myComment2->setAbsolutePos(428 * scaleFactor, 98 * scaleFactor);
-    myComment2->setSize((6 + 7 * 13) * scaleFactor, 15 * scaleFactor);
+    myComment2->setSize((7 * 13) * scaleFactor, 15 * scaleFactor);
 
     // vslider
     mySlider = new PDSlider(mainPatch, this);
