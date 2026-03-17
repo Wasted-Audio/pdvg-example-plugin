@@ -1,22 +1,9 @@
 NAME = PDVGWidgetsExamplePlugin
 FILES_DSP = $(filter-out plugin/PDVGWidgetsExampleUI.cpp, $(wildcard plugin/*.cpp))
 FILES_DSP += $(wildcard *.c)
-FILES_UI = plugin/PDVGWidgetsExampleUI.cpp \
-	dep/pdvg/src/ExtraEventHandlers.cpp \
-	dep/pdvg/src/Canvas.cpp \
-	dep/pdvg/src/Slider.cpp \
-	dep/pdvg/src/Toggle.cpp \
-	dep/pdvg/src/Radio.cpp \
-	dep/pdvg/src/Number.cpp \
-	dep/pdvg/src/Float.cpp \
-	dep/pdvg/src/Knob.cpp \
-	dep/pdvg/src/Bang.cpp \
-	dep/pdvg/src/Label.cpp \
-	dep/pdvg/src/Comment.cpp \
-	dep/pdvg/src/Mainpatch.cpp \
-	dep/pdvg/src/Subpatch.cpp \
-	dep/pdvg/src/DragNum.cpp \
-	dep/pdvg/src/Fonts/*.cpp
+FILES_UI = plugin/PDVGWidgetsExampleUI.cpp
+FILES_UI += $(wildcard dep/pdvg/src/*.cpp)
+FILES_UI +=	dep/pdvg/src/Fonts/*.cpp
 
 
 DPF_TARGET_DIR = bin
