@@ -22,6 +22,7 @@ LINK_FLAGS += -pthread
 
 TARGETS += lv2_sep
 TARGETS += vst3
+TARGETS += clap
 TARGETS += jack
 
 
