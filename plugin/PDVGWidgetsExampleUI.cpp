@@ -7,7 +7,6 @@
 #include "DistrhoPluginInfo.h"
 #include "nanovg.h"
 
-#include "Common.hpp"
 #include "PDVGWidgetsExampleUI.hpp"
 
 START_NAMESPACE_DISTRHO
