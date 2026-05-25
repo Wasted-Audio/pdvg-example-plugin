@@ -1,0 +1,12 @@
+{
+    "name": "pdvgtest",
+    "dpf": {
+        "dpf_path": "../dep/",
+        "enable_ui": 2,
+        "ui_size": {
+            "width": 700,
+            "height": 400
+        },
+        "plugin_formats": ["jack", "vst3"]
+    }
+}

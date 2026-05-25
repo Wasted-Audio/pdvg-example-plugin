@@ -1,10 +1,12 @@
-# Example plugin for PDVG
+# Example plugins for PDVG
 
-This example plugin showcases how [PDVG](https://github.com/Wasted-Audio/PDVG) implements various plugdata UI objects in order to match with very similar output drawing style and user interaction.
+These example plugins showcase how [PDVG](https://github.com/Wasted-Audio/PDVG) implements various plugdata UI objects in order to match with very similar output drawing style and user interaction.
+
+## Hardcoded Example
 
 The plugin itself does not do any DSP processing and is only used to build the GUI. All widgets are placed and configured by hand, based on the `example.pd` patch file coordinates and configuration.
 
-## Instructions
+### Instructions
 
 To build the project:
 
@@ -21,8 +23,30 @@ To test the build either use a compatible plugin host or run the jack standalone
 ./bin/PDVGWidgetsExamplePlugin
 ```
 
-## Comparison
+### Comparison
 
 Here we see a comparison of the graphics between plugdata (top) and the PDVG based DPF build (bottom):
 
 ![comparing plugdata (top) and PDVG (bottom) output](example.png)
+
+## Dynamic Example
+
+Using the latest `hvcc` you can convert `example_gen.pd` to an audio plugin with UI dynamically. Like the other example it doesn't do any DSP processing, other than printing values to stdout.
+
+### Instructions
+
+You will need the latest `hvcc` installed and execute the follow command from this directory
+
+```bash
+hvcc example_gen.pd -o example_gen -m example_gen.json -g dpf --gui
+cd example_gen
+make -j
+```
+
+Then execute the jack example with:
+
+```bash
+./bin/pdvgtest
+```
+
+Or load the VST3 in a compatible plugin host.
