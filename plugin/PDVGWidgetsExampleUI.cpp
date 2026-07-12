@@ -267,6 +267,7 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
     myPopmenu->setId(kPopmenu);
     myPopmenu->setSize(128 * scaleFactor, 26 * scaleFactor);
     myPopmenu->setAbsolutePos(65 * scaleFactor, 324 * scaleFactor);
+    myPopmenu->setNoSelectLabel("something");
     myPopmenu->setOptions({"a", "b", "c", "d"});
     myPopmenu->setFontSize(12 * scaleFactor);
     myPopmenu->setColors(
