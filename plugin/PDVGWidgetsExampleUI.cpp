@@ -261,6 +261,19 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
     );
     myBang->setLabel("Banger", nvgRGBA(0xFF, 0xFF, 0xFF, 0xFF), 0 * scaleFactor, -10 * scaleFactor, 12 * scaleFactor);
     mainPatch->addManagedChild(myBang);
+
+    // popmenu
+    myPopmenu = new PDPopmenu(mainPatch, this);
+    myPopmenu->setId(kPopmenu);
+    myPopmenu->setSize(128 * scaleFactor, 26 * scaleFactor);
+    myPopmenu->setAbsolutePos(65 * scaleFactor, 324 * scaleFactor);
+    myPopmenu->setOptions({"a", "b", "c", "d"});
+    myPopmenu->setFontSize(12 * scaleFactor);
+    myPopmenu->setColors(
+        nvgRGBA(0x19, 0x19, 0x19, 0xFF),
+        nvgRGBA(0xFF, 0xFF, 0xFF, 0xFF)
+    );
+    mainPatch->addManagedChild(myPopmenu);
 }
 
 PDVGWidgetsExampleUI::~PDVGWidgetsExampleUI()
@@ -319,6 +332,9 @@ void PDVGWidgetsExampleUI::parameterChanged(uint32_t index, float value)
     case kKnob3:
         myKnob3->setValue(value);
         break;
+    case kPopmenu:
+        myPopmenu->setValue(value);
+        break;
     default:
         break;
     }
@@ -365,6 +381,13 @@ void PDVGWidgetsExampleUI::knobValueChanged(SubWidget *const widget, float value
     printf("knob value changed: %f\n", value);
     const uint id = widget->getId();
     setParameterValue(id, value);
+}
+
+void PDVGWidgetsExampleUI::popmenuClicked(SubWidget *const widget, uint index)
+{
+    printf("popmenu clicked: %d\n", index);
+    const uint id = widget->getId();
+    setParameterValue(id, static_cast<float>(index));
 }
 
 

@@ -20,7 +20,8 @@ class PDVGWidgetsExampleUI : public UI,
                              public PDRadioEventHandler::Callback,
                              public PDNumberEventHandler::Callback,
                              public PDKnobEventHandler::Callback,
-                             public PDBangEventHandler::Callback
+                             public PDBangEventHandler::Callback,
+                             public PDPopmenuEventHandler::Callback
 {
 public:
     PDVGWidgetsExampleUI();
@@ -35,6 +36,7 @@ protected:
     void radioValueChanged(SubWidget *const widget, uint index) override;
     void numberValueChanged(SubWidget *const widget, float value) override;
     void knobValueChanged(SubWidget *const widget, float value) override;
+    void popmenuClicked(SubWidget *const widget, uint index) override;
 
 private:
     ScopedPointer<PDMainpatch> mainPatch;
@@ -58,6 +60,7 @@ private:
     ScopedPointer<PDKnob> myKnob2;
     ScopedPointer<PDKnob> myKnob3;
     ScopedPointer<PDBang> myBang;
+    ScopedPointer<PDPopmenu> myPopmenu;
 
     DISTRHO_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(PDVGWidgetsExampleUI)
 };

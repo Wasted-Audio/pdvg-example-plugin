@@ -150,6 +150,14 @@ protected:
       parameter.ranges.min = 0.0f;
       parameter.ranges.max = 1.0f;
       break;
+    case kPopmenu:
+      parameter.name = "myPopmenu";
+      parameter.symbol = "myPopmenu";
+      parameter.hints = kParameterIsAutomatable;
+      parameter.ranges.def = 0.0f;
+      parameter.ranges.min = 0.0f;
+      parameter.ranges.max = 3.0f;
+      break;
     default:
       break;
     }
@@ -192,6 +200,9 @@ protected:
       break;
     case kKnob3:
       value = fKnob3;
+      break;
+    case kPopmenu:
+      value = fPopmenu;
       break;
     default:
       break;
@@ -236,6 +247,9 @@ protected:
     case kKnob3:
       fKnob3 = value;
       break;
+    case kPopmenu:
+      fPopmenu = value;
+      break;
     default:
       break;
     }
@@ -260,6 +274,7 @@ private:
   float fKnob2;
   float fKnob3;
   float fBang;
+  float fPopmenu;
 
   DISTRHO_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(PDVGWidgetsExamplePlugin)
 };
