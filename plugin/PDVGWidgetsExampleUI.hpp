@@ -61,6 +61,8 @@ private:
     ScopedPointer<PDKnob> myKnob3;
     ScopedPointer<PDBang> myBang;
     ScopedPointer<PDPopmenu> myPopmenu;
+    ScopedPointer<PDSubpatch> subPatch2;
+    ScopedPointer<PDPopmenu> myPopmenu2;
 
     DISTRHO_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(PDVGWidgetsExampleUI)
 };

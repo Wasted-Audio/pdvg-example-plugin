@@ -266,7 +266,7 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
     myPopmenu = new PDPopmenu(mainPatch, this);
     myPopmenu->setId(kPopmenu);
     myPopmenu->setSize(128 * scaleFactor, 26 * scaleFactor);
-    myPopmenu->setAbsolutePos(65 * scaleFactor, 324 * scaleFactor);
+    myPopmenu->setAbsolutePos(37 * scaleFactor, 296 * scaleFactor);
     myPopmenu->setNoSelectLabel("something");
     myPopmenu->setOptions({"a", "b", "c", "d"});
     myPopmenu->setFontSize(12 * scaleFactor);
@@ -275,6 +275,25 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
         nvgRGBA(0xFF, 0xFF, 0xFF, 0xFF)
     );
     mainPatch->addManagedChild(myPopmenu);
+
+    subPatch2 = new PDSubpatch(mainPatch);
+    subPatch2->setSize(150 * scaleFactor, 49 * scaleFactor);
+    subPatch2->setAbsolutePos(26 * scaleFactor, 332 * scaleFactor);
+    mainPatch->addManagedChild(subPatch2);
+
+    // popmenu2
+    myPopmenu2 = new PDPopmenu(subPatch2, this);
+    myPopmenu2->setId(kPopmenu2);
+    myPopmenu2->setSize(128 * scaleFactor, 26 * scaleFactor);
+    myPopmenu2->setAbsolutePos(9 * scaleFactor, 12 * scaleFactor);
+    myPopmenu2->setNoSelectLabel("something");
+    myPopmenu2->setOptions({"1", "2", "3", "4", "5"});
+    myPopmenu2->setFontSize(12 * scaleFactor);
+    myPopmenu2->setColors(
+        nvgRGBA(0x19, 0x19, 0x19, 0xFF),
+        nvgRGBA(0xFF, 0xFF, 0xFF, 0xFF)
+    );
+    subPatch2->addManagedChild(myPopmenu2);
 }
 
 PDVGWidgetsExampleUI::~PDVGWidgetsExampleUI()
@@ -335,6 +354,9 @@ void PDVGWidgetsExampleUI::parameterChanged(uint32_t index, float value)
         break;
     case kPopmenu:
         myPopmenu->setValue(value);
+        break;
+    case kPopmenu2:
+        myPopmenu2->setValue(value);
         break;
     default:
         break;

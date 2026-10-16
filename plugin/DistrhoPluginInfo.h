@@ -29,5 +29,6 @@ enum Parameters
     kKnob3,
     kBang,
     kPopmenu,
+    kPopmenu2,
     kParameterCount
 };
