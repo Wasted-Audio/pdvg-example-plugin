@@ -35,8 +35,10 @@
 #X text 428 97 comment text verylongtextthatdoesnotfitatallonthis wrapped text, f 13;
 #X obj 37 296 popmenu 128 26 12 #191919 #FFFFFF \  empty empty empty empty 1 0 -1 1 0 1 0 0 0 0 0 a b c d;
 #N canvas 0 50 450 300 subpop 0;
-#X obj 9 12 popmenu 128 26 12 #191919 #FFFFFF \  empty empty empty empty 1 0 -1 1 0 1 0 0 0 0 0 1 2 3 4 5;
-#X coords 0 0 1 1 150 49 1 0 0;
+#X obj 9 12 popmenu 128 26 12 #191919 #FFFFFF \  empty empty empty empty 1 0 -1 1 0 1 0 0 0 0 0 one two three four five;
+#X msg 9 -80 clear \, add one two three four five;
+#X connect 1 0 0 0;
+#X coords 0 0 1 1 150 49 2 0 0;
 #X restore 26 332 pd subpop;
 #X connect 7 0 11 0;
 #X connect 7 0 8 0;
