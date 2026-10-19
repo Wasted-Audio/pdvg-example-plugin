@@ -25,7 +25,7 @@
 #X restore 464 190 pd sub;
 #X msg 160 -36 3;
 #X floatatom 272 100 5 -10 10 0 test float1\ @hv_param\ -10\ 10\ 3.333 - 12;
-#X obj 272 68 nbx 4 18 0 1000 0 0 empty number1\ @hv_param\ 0\ 1000\ 666.6 empty 0 -8 0 10 #191919 #ffffff #ffffff 0 256;
+#X obj 272 68 nbx 4 18 1 1000 1 0 empty number1\ @hv_param\ 0\ 1000\ 666.6 empty 0 -8 0 10 #191919 #ffffff #ffffff 0 256;
 #X obj 259 312 knob 50 0 127 5 99 empty knob1\ @hv_param\ 0\ 127\ 99 #191919 #626262 #FFFFFF 1 0 16 0 1 270 0 1 1 empty empty 1 12 6 -15 0 1 1 0 0 0 1;
 #X obj 326 312 knob 50 0 127 0 99 empty knob2\ @hv_param\ 0\ 127\ 99 #191919 #626262 #FFFFFF 1 0 12 1 0 270 0 0 0 empty empty 2 12 0 0 0 1 1 0 0 0 0;
 #X obj 395 312 knob 50 1 127 1 99 empty knob3\ @hv_param\ 0\ 127\ 99 #191919 #626262 #FFFFFF 0 0 5 0 0 180 90 0 1 empty empty 1 20 4 59 0 1 1 0 0 0 1;
