@@ -202,8 +202,7 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
         nvgRGBA(0xFF, 0xFF, 0xFF, 0xFF),
         nvgRGBA(0x62, 0x62, 0x62, 0xFF)
     );
-    myKnob->setLabelStyle(6 * scaleFactor, -15 * scaleFactor, 12 * scaleFactor);
-    myKnob->setShowLabel(LabelShow::ALWAYS);
+    myKnob->setLabelStyle(6 * scaleFactor, -15 * scaleFactor, 12 * scaleFactor, LabelShow::ALWAYS);
     mainPatch->addManagedChild(myKnob);
 
     // knob2
@@ -223,8 +222,7 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
         nvgRGBA(0xFF, 0xFF, 0xFF, 0xFF),
         nvgRGBA(0x62, 0x62, 0x62, 0xFF)
     );
-    myKnob2->setLabelStyle(0 * scaleFactor, 0 * scaleFactor, 12 * scaleFactor);
-    myKnob2->setShowLabel(LabelShow::ACTIVE);
+    myKnob2->setLabelStyle(0 * scaleFactor, 0 * scaleFactor, 12 * scaleFactor, LabelShow::ACTIVE);
     mainPatch->addManagedChild(myKnob2);
 
     // knob3
@@ -246,8 +244,7 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
         nvgRGBA(0xFF, 0xFF, 0xFF, 0xFF),
         nvgRGBA(0x62, 0x62, 0x62, 0xFF)
     );
-    myKnob3->setLabelStyle(4 * scaleFactor, 59 * scaleFactor, 20 * scaleFactor);
-    myKnob3->setShowLabel(LabelShow::ALWAYS);
+    myKnob3->setLabelStyle(4 * scaleFactor, 59 * scaleFactor, 20 * scaleFactor, LabelShow::ALWAYS);
     mainPatch->addManagedChild(myKnob3);
 
     // bang
