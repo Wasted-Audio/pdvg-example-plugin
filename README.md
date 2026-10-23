@@ -31,7 +31,7 @@ Here we see a comparison of the graphics between plugdata (top) and the PDVG bas
 
 ## Dynamic Example
 
-Using the latest `hvcc` you can convert `example_gen.pd` to an audio plugin with UI dynamically. Like the other example it doesn't do any DSP processing, other than printing values to stdout.
+Using the latest `hvcc` you can convert `example_gen.pd` to an audio plugin with UI dynamically. Like the other example it doesn't do any DSP processing, other than printing values to stdout. For learning about send/output parameters use `example_gen_send.pd`.
 
 ### Instructions
 
