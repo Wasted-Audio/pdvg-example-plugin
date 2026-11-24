@@ -166,8 +166,11 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
     myNumber->setId(kNumber);
     myNumber->setSize(8 * (2 + 4) * scaleFactor, (2 + 16) * scaleFactor);
     myNumber->setAbsolutePos(272 * scaleFactor, 68 * scaleFactor);
-    myNumber->setRange(0.0f, 1000.0f);
+    myNumber->setRange(1.0f, 1000.0f);
+    myNumber->setUsingLogScale(true);
+    myNumber->setLogarithmicHeight(256);
     myNumber->setDefault(666.6f);
+    myNumber->setNumChars(4);
     myNumber->setColors(
         nvgRGBA(0x19, 0x19, 0x19, 0xFF),
         nvgRGBA(0xFF, 0xFF, 0xFF, 0xFF)
@@ -181,6 +184,7 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
     myFloat->setAbsolutePos(272 * scaleFactor, 100 * scaleFactor);
     myFloat->setRange(-10.0f, 10.0f);
     myFloat->setDefault(3.33f);
+    myFloat->setNumChars(5);
     myFloat->setLabel("test", 14 * scaleFactor, LabelPos::Left);
     mainPatch->addManagedChild(myFloat);
 
@@ -246,6 +250,50 @@ PDVGWidgetsExampleUI::PDVGWidgetsExampleUI()
     );
     myKnob3->setLabelStyle(4 * scaleFactor, 59 * scaleFactor, 20 * scaleFactor, LabelShow::ALWAYS);
     mainPatch->addManagedChild(myKnob3);
+
+    // knob4
+    myKnob4 = new PDKnob(mainPatch, this);
+    myKnob4->setId(kKnob4);
+    myKnob4->setSize(50 * scaleFactor, 50 * scaleFactor);
+    myKnob4->setAbsolutePos(510 * scaleFactor, 265 * scaleFactor);
+    myKnob4->setKnobArea(0.0f, 0.0f, 50 * scaleFactor, 50 * scaleFactor);
+    myKnob4->setRange(0.0f, 127.0f);
+    myKnob4->setDefault(99.0f);
+    myKnob4->setShowArc(false);
+    myKnob4->setSteps(12);
+    myKnob4->setDiscrete(true);
+    myKnob4->setShowTicks(true);
+    myKnob4->setTransparent(true);
+    myKnob4->setColors(
+        nvgRGBA(0x19, 0x19, 0x19, 0xFF),
+        nvgRGBA(0xFF, 0xFF, 0xFF, 0xFF),
+        nvgRGBA(0x62, 0x62, 0x62, 0xFF)
+    );
+    myKnob4->setLabelStyle(0 * scaleFactor, 0 * scaleFactor, 12 * scaleFactor, LabelShow::ACTIVE);
+    mainPatch->addManagedChild(myKnob4);
+
+    // knob5
+    myKnob5 = new PDKnob(mainPatch, this);
+    myKnob5->setId(kKnob5);
+    myKnob5->setSize(50 * scaleFactor, 50 * scaleFactor);
+    myKnob5->setAbsolutePos(614 * scaleFactor, 199 * scaleFactor);
+    myKnob5->setKnobArea(0.0f, 0.0f, 50 * scaleFactor, 50 * scaleFactor);
+    myKnob5->setRange(1.0f, 127.0f);
+    myKnob5->setDefault(99.0f);
+    myKnob5->setShowArc(false);
+    myKnob5->setAngular(180, 90);
+    myKnob5->setDrawSquare(false);
+    myKnob5->setSteps(5);
+    myKnob5->setShowTicks(true);
+    myKnob5->setUsingLogScale(PDKnobEventHandler::LogMode::LOG);
+    myKnob5->setTransparent(true);
+    myKnob5->setColors(
+        nvgRGBA(0x19, 0x19, 0x19, 0xFF),
+        nvgRGBA(0xFF, 0xFF, 0xFF, 0xFF),
+        nvgRGBA(0x62, 0x62, 0x62, 0xFF)
+    );
+    myKnob5->setLabelStyle(4 * scaleFactor, 59 * scaleFactor, 20 * scaleFactor, LabelShow::ALWAYS);
+    mainPatch->addManagedChild(myKnob5);
 
     // bang
     myBang = new PDBang(mainPatch, this);
@@ -315,6 +363,12 @@ void PDVGWidgetsExampleUI::parameterChanged(uint32_t index, float value)
         break;
     case kKnob3:
         myKnob3->setValue(value);
+        break;
+    case kKnob4:
+        myKnob4->setValue(value);
+        break;
+    case kKnob5:
+        myKnob5->setValue(value);
         break;
     default:
         break;

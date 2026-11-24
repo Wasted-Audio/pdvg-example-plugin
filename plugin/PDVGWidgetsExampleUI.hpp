@@ -57,6 +57,8 @@ private:
     ScopedPointer<PDKnob> myKnob;
     ScopedPointer<PDKnob> myKnob2;
     ScopedPointer<PDKnob> myKnob3;
+    ScopedPointer<PDKnob> myKnob4;
+    ScopedPointer<PDKnob> myKnob5;
     ScopedPointer<PDBang> myBang;
 
     DISTRHO_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(PDVGWidgetsExampleUI)

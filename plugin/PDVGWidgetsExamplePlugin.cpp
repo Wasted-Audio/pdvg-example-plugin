@@ -142,6 +142,22 @@ protected:
       parameter.ranges.min = 1.0f;
       parameter.ranges.max = 127.0f;
       break;
+    case kKnob4:
+      parameter.name = "myKnob4";
+      parameter.symbol = "myKnob4";
+      parameter.hints = kParameterIsAutomatable;
+      parameter.ranges.def = 99.0f;
+      parameter.ranges.min = 0.0f;
+      parameter.ranges.max = 127.0f;
+      break;
+    case kKnob5:
+      parameter.name = "myKnob5";
+      parameter.symbol = "myKnob5";
+      parameter.hints = kParameterIsAutomatable | kParameterIsLogarithmic;
+      parameter.ranges.def = 99.0f;
+      parameter.ranges.min = 1.0f;
+      parameter.ranges.max = 127.0f;
+      break;
     case kBang:
       parameter.name = "myBang";
       parameter.symbol = "myBang";
@@ -236,6 +252,12 @@ protected:
     case kKnob3:
       fKnob3 = value;
       break;
+    case kKnob4:
+      fKnob4 = value;
+      break;
+    case kKnob5:
+      fKnob5 = value;
+      break;
     default:
       break;
     }
@@ -259,6 +281,8 @@ private:
   float fKnob;
   float fKnob2;
   float fKnob3;
+  float fKnob4;
+  float fKnob5;
   float fBang;
 
   DISTRHO_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(PDVGWidgetsExamplePlugin)
